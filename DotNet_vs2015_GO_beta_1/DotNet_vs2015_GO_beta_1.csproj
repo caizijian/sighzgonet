@@ -70,6 +70,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\launch.jpg" />
+    <Content Include="images\ok.jpg" />
+    <Content Include="launch\launch1.aspx" />
+    <Content Include="launch\launch2.aspx" />
+    <Content Include="launch\launch3.aspx" />
+    <Content Include="launch\launch4.aspx" />
+    <Content Include="launch\launch5.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -91,6 +98,41 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="launch\launch1.aspx.cs">
+      <DependentUpon>launch1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="launch\launch1.aspx.designer.cs">
+      <DependentUpon>launch1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="launch\launch2.aspx.cs">
+      <DependentUpon>launch2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="launch\launch2.aspx.designer.cs">
+      <DependentUpon>launch2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="launch\launch3.aspx.cs">
+      <DependentUpon>launch3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="launch\launch3.aspx.designer.cs">
+      <DependentUpon>launch3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="launch\launch4.aspx.cs">
+      <DependentUpon>launch4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="launch\launch4.aspx.designer.cs">
+      <DependentUpon>launch4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="launch\launch5.aspx.cs">
+      <DependentUpon>launch5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="launch\launch5.aspx.designer.cs">
+      <DependentUpon>launch5.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="system\edit.aspx.cs">
       <DependentUpon>edit.aspx</DependentUpon>
