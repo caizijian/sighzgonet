@@ -70,6 +70,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\detail.css" />
+    <Content Include="detail\Game_details.aspx" />
     <Content Include="images\launch.jpg" />
     <Content Include="images\ok.jpg" />
     <Content Include="launch\launch1.aspx" />
@@ -98,6 +100,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="detail\Game_details.aspx.cs">
+      <DependentUpon>Game_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detail\Game_details.aspx.designer.cs">
+      <DependentUpon>Game_details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="launch\launch1.aspx.cs">
       <DependentUpon>launch1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

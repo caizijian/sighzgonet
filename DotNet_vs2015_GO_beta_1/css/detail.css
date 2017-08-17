@@ -1,0 +1,43 @@
+﻿body {
+    margin:0;
+    padding:0;
+    background-color:#002D54;
+}
+.back {
+    text-align: left;
+    font-family: 微软雅黑;
+    width:80%;
+    height: 720px;
+    margin:30px auto;
+    text-align:center;
+}
+.back td{
+    border-left:10px solid #002D54;border-top:10px solid #002D54;
+        background-color: #FFFFFF;
+}
+.title_back {
+    width:33%;
+    height: 80px;
+}
+.back .left_back{
+    height:640px;
+}
+.back .right_back{
+    height:280px;
+}
+h2.title {
+    font-family: 微软雅黑;
+    font-size: xx-large;
+    font-weight: bold;
+    color: #000000;
+    line-height: 36px;
+    padding-bottom:10px;
+    text-align: left;
+    vertical-align:top;
+    border-bottom-style: groove;
+    border-bottom-color: #002D54;
+    display: block;
+    float: left;
+    margin:0 10px;
+}
+
