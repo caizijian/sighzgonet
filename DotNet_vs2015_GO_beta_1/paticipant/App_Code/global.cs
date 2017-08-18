@@ -67,6 +67,16 @@ public class global{
         return mysqlHelp.ExecuteReader(sql,p);
     }
 
+    //显示比赛详情
+    
+ public static MySqlDataReader CompetitionInfo(int id)
+    {
+        //加判断输入+是否存在
+        string sql = "select * from competition where id=?id";
+        MySqlParameter[] p ={
+        new MySqlParameter("?id",id) };
+        return mysqlHelp.ExecuteReader(sql, p);
+    }
     //显示主办方个人信息
     public static MySqlDataReader HostInfo(int id)
     {
