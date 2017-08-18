@@ -9,7 +9,7 @@
     <style type="text/css">
 
         .auto-style1 {
-            height: 80px;
+            height: 90px;
         }
 
     </style>
@@ -23,16 +23,37 @@
             <td rowspan="2" class="title_back"><h2 class="title">摘要</h2></td>
         </tr>
         <tr>
-            <td rowspan="4" class="left_back" draggable="true" translate="no">
+            <td rowspan="9" class="left_back" draggable="true" translate="no">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="right_back" style="width: 33%">
-                <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-                    <Columns>
-                        <asp:BoundField DataField="competitionname" HeaderText="比赛" />
-                    </Columns>
-                </asp:GridView>
+            <td class="right_back" style="width: 33%; height: 45px;">
+                比赛名称：<asp:Label ID="Label1" runat="server" Text="比赛名称"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="right_back" style="width: 33%; height: 45px;">
+                主办单位：<asp:Label ID="Label2" runat="server" Text="主办单位"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="right_back" style="width: 33%; height: 45px;">
+                比赛时间：<asp:Label ID="Label3" runat="server" Text="比赛时间"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="right_back" style="width: 33%; height: 45px;">
+                最高奖金：<asp:Label ID="Label4" runat="server" Text="最高奖金"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="right_back" style="width: 33%; height: 45px;">
+                距离报名截止还有 
+                <asp:Label ID="Label5" runat="server" Text="X"></asp:Label>
+&nbsp;天</td>
+        </tr>
+        <tr>
+            <td class="right_back" style="width: 33%; height: 45px;">
                 <asp:Button ID="Button2" runat="server" Text="报名参赛" OnClick="Button1_Click" />
                 <asp:Button ID="Button1" runat="server" Text="上传作品" OnClick="Button2_Click" />
             </td>
