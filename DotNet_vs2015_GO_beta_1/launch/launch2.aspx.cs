@@ -124,8 +124,10 @@ namespace WebApplication1
                 //  string str = "Server=localhost;User ID=root;Password=1548936563ry?;Database=launch;CharSet=utf8;";
                 string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
                 MySqlConnection con = new MySqlConnection(str);//实例化链接
-                con.Open();//开启连接
-                string strcmd = "insert into host (id,managername,telephone,wechat)values (?id,?managername,?telephone,?wechat)";
+                con.Open();
+                //开启连接   
+                // string strcmd = "insert into host (id,managername,telephone,wechat)values (?id,?managername,?telephone,?wechat)";
+                string strcmd = "update host set managername=?managername,telephone=?telephone,wechat=?wechat where id=?id";
                 MySqlCommand cmd = new MySqlCommand(strcmd, con);
                 cmd.Parameters.AddWithValue("?managername", managername.Text);
                 cmd.Parameters.AddWithValue("?telephone", telephone.Text);
