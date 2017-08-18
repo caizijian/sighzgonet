@@ -13,6 +13,11 @@ namespace edit
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["uid"] == null)
+            {
+                Response.Redirect("../system/login.aspx", false);
+                return;
+            }
             int host_id = 106;
             //String competiton_id = Session["competiton_id"].ToString();
             MySqlDataReader reader = global.HostInfo(host_id);

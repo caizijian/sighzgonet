@@ -11,7 +11,11 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["uid"] == null)
+            {
+                Response.Redirect("../system/login.aspx", false);
+                return;
+            }
         }
 
 

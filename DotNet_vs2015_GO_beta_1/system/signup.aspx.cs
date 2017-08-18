@@ -37,6 +37,14 @@ namespace login
                         strcmd1 = "insert into user (username,password,type) VALUES ('" + username.Text.Trim() + " ','" + password.Text.Trim() + "','" + 1 + "')";
                         MySqlCommand cmd1 = new MySqlCommand(strcmd1, con);
                         cmd1.ExecuteNonQuery();
+
+                        int id = global.Login(username.Text.Trim(), password.Text.Trim());
+                        strcmd1 = "insert into host (id) values ('" + id + " ')";
+                        Session["uid"] = id;
+                        MySqlCommand cmd2 = new MySqlCommand(strcmd1, con);
+                        cmd2.ExecuteNonQuery();
+
+
                         Response.Write("<script>alert('注册成功！')</script>");
                         Response.Redirect("Home.html", false);
                     }

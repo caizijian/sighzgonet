@@ -12,7 +12,12 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["uid"] == null)
+            {
+                Response.Redirect("../system/login.aspx", false);
+                return;
+            }
+                if (!IsPostBack)
             {
                 //int participant_id = Convert.ToInt32(Session["participant_id"]);
                 //String competiton_id = Session["competiton_id"].ToString();
