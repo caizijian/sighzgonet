@@ -1,0 +1,83 @@
+﻿body {
+    margin:0;
+    padding:0;
+    background-color:#002D54;
+}
+
+.back {
+    width:100%;
+    height:720px;
+}
+
+.left_menu {
+    position:fixed;
+    background-color:#ffffff;
+    float:left;
+    height: 50%;
+    width:30%;
+    top: 0px;
+    left: 0px;
+}
+
+
+h5.menutitle {
+    color:#909090;
+    font-size:14px;
+    font-weight:bolder;
+}
+
+.menuclass {
+    color:#909090;
+    font-size:14px;
+    font-weight:bolder;
+}
+
+.menuitem {
+    color:#909090;
+    font-size:14px;
+}
+
+.left_menu a:hover {
+    color:#002d54;
+}
+
+.right_show {
+    background-color:#dedede;
+    width:60%;  
+    margin-right:50px;
+    float:right;
+ 
+
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.game {
+    border:5px solid #dedede;
+    background-color:#ffffff;
+    width:100%;
+}
+
+.game_status {
+    font-size:14px;
+    font-weight:bolder;
+    color:#002d54;
+}
+
+.texttitle {
+    font-size:14px;
+    font-weight:bolder;
+    color:#909090;
+
+}
+
+.gametitle {
+    font-size:xx-large;
+    font-weight:bolder;
+    color:#002d54;
+    float:left;
+}
+
+.textcontent {
+    font-size:14px;
+    color:#909090;
+}
