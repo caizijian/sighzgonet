@@ -67,27 +67,27 @@ namespace edit
             bool flag = true;
             if (menagername.Text == "")
             {
-                Response.Write("<script>alert('用户名不能为空')</script>");
+                Response.Write("<script>alert('负责人姓名不能为空')</script>");
                 flag = false;
             }
             if (companyname.Text == "")
             {
-                Response.Write("<script>alert('用户名不能为空')</script>");
+                Response.Write("<script>alert('公司/组织名称不能为空')</script>");
                 flag = false;
             }
             if (mainbusiness.Text == "")
             {
-                Response.Write("<script>alert('用户名不能为空')</script>");
+                Response.Write("<script>alert('主营业务不能为空')</script>");
                 flag = false;
             }
             if (wechat.Text == "")
             {
-                Response.Write("<script>alert('用户名不能为空')</script>");
+                Response.Write("<script>alert('微信号不能为空')</script>");
                 flag = false;
             }
             if (telephone.Text == "")
             {
-                Response.Write("<script>alert('用户名不能为空')</script>");
+                Response.Write("<script>alert('电话号码不能为空')</script>");
                 flag = false;
             }
             return flag;

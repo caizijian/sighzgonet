@@ -20,7 +20,7 @@ namespace login
         {
             if (check())
             {
-                string str = "Server=localhost;User ID=root;Password=1234qwer;Database=test;CharSet=utf8;";
+                string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
                 MySqlConnection con = new MySqlConnection(str);//实例化链接
                 con.Open();//开启连接
                 string strcmd = "select id from user where username='" + username.Text + "' ";
