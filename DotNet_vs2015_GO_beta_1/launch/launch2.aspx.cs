@@ -43,7 +43,7 @@ namespace WebApplication1
                         {
                             Directory.CreateDirectory(Server.MapPath(filepath));
                         }
-                        string virpath = filepath + CreatePasswordHash(pic_upload.FileName, 4) + fileExtension;//这是存到服务器上的虚拟路径
+                        string virpath = filepath + Session["uid"];//这是存到服务器上的虚拟路径
                         string mappath = Server.MapPath(virpath);//转换成服务器上的物理路径
                         pic_upload.PostedFile.SaveAs(mappath);//保存图片
                         //显示图片
@@ -93,35 +93,8 @@ namespace WebApplication1
             return isimage;
         }
 
-        /// <summary>
-        /// 创建一个指定长度的随机salt值
-        /// </summary>
-        public string CreateSalt(int saltLenght)
-        {
-            //生成一个加密的随机数
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            byte[] buff = new byte[saltLenght];
-            rng.GetBytes(buff);
-            //返回一个Base64随机数的字符串
-            return Convert.ToBase64String(buff);
-        }
 
-
-        /// <summary>
-        /// 返回加密后的字符串
-        /// </summary>
-        public string CreatePasswordHash(string pwd, int saltLenght)
-        {
-            string strSalt = CreateSalt(saltLenght);
-            //把密码和Salt连起来
-            string saltAndPwd = String.Concat(pwd, strSalt);
-            //对密码进行哈希
-            string hashenPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(saltAndPwd, "sha1");
-            //转为小写字符并截取前16个字符串
-            hashenPwd = hashenPwd.ToLower().Substring(0, 16);
-            //返回哈希后的值
-            return hashenPwd;
-        }
+ 
 
 
         protected bool check(string managername, string telephone ,string email)
@@ -148,16 +121,20 @@ namespace WebApplication1
         {
             if (check(managername.Text, telephone.Text,email.Text))
             {
-                string str = "Server=localhost;User ID=root;Password=1548936563ry?;Database=launch;CharSet=utf8;";
+                //  string str = "Server=localhost;User ID=root;Password=1548936563ry?;Database=launch;CharSet=utf8;";
+                string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
                 MySqlConnection con = new MySqlConnection(str);//实例化链接
                 con.Open();//开启连接
-                string strcmd = "insert into information (managername,telephone)values (?managername,?telephone)";
+                string strcmd = "insert into host (id,managername,telephone,wechat)values (?id,?managername,?telephone,?wechat)";
                 MySqlCommand cmd = new MySqlCommand(strcmd, con);
                 cmd.Parameters.AddWithValue("?managername", managername.Text);
                 cmd.Parameters.AddWithValue("?telephone", telephone.Text);
-                cmd.Parameters.AddWithValue("?wechat", wechat.Text);
+                 cmd.Parameters.AddWithValue("?wechat", wechat.Text);
+                cmd.Parameters.AddWithValue("?id", Session["uid"]);
+              //  cmd.Parameters.AddWithValue("?id", 1);
                 int i = cmd.ExecuteNonQuery();
                 Console.WriteLine(i);
+                Session["managername"] = managername.Text;
                 con.Close();//关闭连接
                 Response.Redirect("launch3.aspx");
             }
