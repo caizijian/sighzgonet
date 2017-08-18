@@ -40,36 +40,6 @@ namespace edit
             }
         }
 
-        public int show()
-        {
-            int host_id = 106;
-            //String competiton_id = Session["competiton_id"].ToString();
-            MySqlDataReader reader = global.HostInfo(host_id);
-            if (reader.Read())
-            {
-                _readonly red = new _readonly();
-                red.changelabel(reader);
-                return 2;
-            }
-            else
-            {
-                return 1;
-            }
-            /*if (ds == null || ds.Tables.Count == 0 || (ds.Tables.Count == 1 && ds.Tables[0].Rows.Count == 0))
-            {
-                return 1;
-            }
-            else if (ds.Tables[0].Rows.Count > 0&& ds.Tables[0].Rows[0]!=null)
-            {
-                
-                _readonly red=new _readonly();
-                red.changelabel(ds);
-                return 2;
-            }
-            else
-            {
-                return 0;
-            }*/
+
         }
     }
-}
