@@ -96,9 +96,12 @@
             <div style="margin-top:20px; font-size: 1vw;color: white;">
                 <span >选择成为：</span>
                 <span >
-                    <asp:RadioButton ID="host" checked="true" GroupName="role" runat="server" />主办方</span>
-                <span >
-                    <asp:RadioButton ID="join" runat="server" GroupName="role" />参赛者</span>
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" Font-Size="9pt" RepeatDirection="Horizontal" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
+                                    <asp:ListItem>主办方</asp:ListItem>
+                                    <asp:ListItem>参赛者</asp:ListItem>
+                                </asp:RadioButtonList>
+                    </span>
+                
             </div>
             <div style="font-size: 1vw;color: white;">
             <span>

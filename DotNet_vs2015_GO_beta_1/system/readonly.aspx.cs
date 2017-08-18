@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -12,14 +13,23 @@ namespace edit
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int host_id = 106;
+            //String competiton_id = Session["competiton_id"].ToString();
+            MySqlDataReader reader = global.HostInfo(host_id);
+            if (reader.Read())
+            {
+                string managername = reader.GetString(4);
+                Label1.Text = reader.GetString(4);
+                Label2.Text = reader.GetString(1);
+                Label5.Text = reader.GetString(3);
+                Label6.Text = reader.GetString(7);
+                Label7.Text = reader.GetString(5);
+            }         
+        }
 
-        }
-        public void changelabel(DataSet ds)
-        {
-        }
         protected void revise_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/edit.aspx", false);
+            Response.Redirect("~/system/edit.aspx", false);
         }
     }
 }

@@ -81,7 +81,7 @@
         <div class="title">
             <a href="Home.html">
                 <div class="logo">
-                    <img src="images/Logo_purple.png" />
+                    <img src="../images/logo.jpg" />
                     <h1>赛事GO</h1>
                 </div>
             </a>

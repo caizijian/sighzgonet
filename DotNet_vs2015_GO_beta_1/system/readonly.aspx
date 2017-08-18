@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link rel="stylesheet" href="css/head&foot.css" type="text/css" />
+    <link rel="stylesheet" href="../css/head&foot.css" type="text/css" />
     <style type="text/css">
         div.list{
     position:relative;
@@ -53,6 +53,12 @@ div.content h3{
     text-decoration: none;
 }
     </style>
+    <script>
+        function change(string )
+            {
+            document.getElementById("uname").value = "abc";
+            }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -60,7 +66,7 @@ div.content h3{
         <div id="header">
 
         <div class="logo">
-            <a href="Home.html"><img  class="logo" src="images/logo.jpg" alt="赛事go" /></a>
+            <a href="Home.html"><img  class="logo" src="../images/logo.jpg" alt="赛事go" /></a>
         </div>
 
         <div class="title">
@@ -77,13 +83,13 @@ div.content h3{
         </div>
 
         <div class="search">
-            <img src="images/search.jpg" alt="赛事go" />
+            <img src="../images/search.jpg" alt="赛事go" />
             <input type="search" id="user_name" name="user_name" placeholder="搜索赛事或内容"/>
         </div>
 
         <div class="information">
             <div class="me">
-                <img src="images/me.png" />
+                <img src="../images/me.png" />
                 <ul>
                     <li><a href="me_for_sponsor_readonly.html">个人资料</a></li>
                     <li><br/></li>
@@ -96,7 +102,7 @@ div.content h3{
      
 
             <div class="e-mail">
-                <img src="images/information.png"/>
+                <img src="../images/information.png"/>
                 <ul>
                     <li><a href="#">私信</a></li>
                     <li><br/></li>
