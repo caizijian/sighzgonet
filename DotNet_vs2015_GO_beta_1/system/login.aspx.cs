@@ -49,6 +49,7 @@ namespace login
             }
             else
             {
+                    Session["uid"] = ds.Tables[0].Rows[0][0].ToString();
                     Session["userName"] = username.Text.Trim();
                     if (remember.Checked)
                     {
@@ -63,6 +64,7 @@ namespace login
                 Response.Write("<script>alert('登陆成功')</script>");
              }
             con.Close();//关闭连接
+            Response.Redirect("Home.html", false);
             }
         }
 

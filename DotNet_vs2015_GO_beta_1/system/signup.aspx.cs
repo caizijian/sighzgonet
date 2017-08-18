@@ -31,11 +31,26 @@ namespace login
                 ada.Fill(ds, "gg");//查询结果填充数据集     
                 if (ds == null || ds.Tables.Count == 0 || (ds.Tables.Count == 1 && ds.Tables[0].Rows.Count == 0))
                 {
-
-                    string strcmd1 = "insert into user (username,password) VALUES ('" + username.Text.Trim() + " ','" + password.Text.Trim() + "')";
-                    MySqlCommand cmd1 = new MySqlCommand(strcmd1, con);
-                    cmd1.ExecuteNonQuery();
-                    Response.Write("<script>alert('注册成功！')</script>");
+                    string strcmd1;
+                    if (RadioButtonList1.SelectedValue == "主办方")
+                    {
+                        strcmd1 = "insert into user (username,password,type) VALUES ('" + username.Text.Trim() + " ','" + password.Text.Trim() + "','" + 1 + "')";
+                        MySqlCommand cmd1 = new MySqlCommand(strcmd1, con);
+                        cmd1.ExecuteNonQuery();
+                        Response.Write("<script>alert('注册成功！')</script>");
+                        Response.Redirect("Home.html", false);
+                    }
+                    else if (RadioButtonList1.SelectedValue == "参赛者")
+                    {
+                        strcmd1 = "insert into user (username,password) VALUES ('" + username.Text.Trim() + " ','" + password.Text.Trim() + "','" + 2 + "')";
+                        MySqlCommand cmd1 = new MySqlCommand(strcmd1, con);
+                        cmd1.ExecuteNonQuery();
+                        Response.Write("<script>alert('注册成功！')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('注册失败！')</script>");
+                    }
                 }
                 else
                 {
@@ -71,6 +86,12 @@ namespace login
                 Response.Write("<script>alert('请同意《赛事GO服务条款》后重试！')</script>");
                 flag = false;
             }
+            if (RadioButtonList1.SelectedValue != "主办方"&& RadioButtonList1.SelectedValue != "参赛者")
+            {
+                Response.Write("<script>alert('请选择您的用户身份后重试！')</script>");
+                flag = false;
+            }
+
             return flag;
         }
         protected void username_TextChanged(object sender, EventArgs e)
@@ -94,6 +115,11 @@ namespace login
         }
 
         protected void checkb_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
