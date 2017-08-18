@@ -27,19 +27,21 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="right_back">
+            <td class="right_back" style="width: 33%">
                 <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                     <Columns>
-                        <asp:BoundField DataField="competitionname" HeaderText="比赛名称" />
+                        <asp:BoundField DataField="competitionname" HeaderText="比赛" />
                     </Columns>
                 </asp:GridView>
+                <asp:Button ID="Button2" runat="server" Text="报名参赛" OnClick="Button1_Click" />
+                <asp:Button ID="Button1" runat="server" Text="上传作品" OnClick="Button2_Click" />
             </td>
         </tr>
         <tr>
             <td class="title_back"><h2 class="title">公告栏</h2></td>
         </tr>
         <tr>
-            <td class="right_back">&nbsp;</td>
+            <td class="right_back" style="width: 33%">&nbsp;</td>
         </tr>
     </table>
     </form>

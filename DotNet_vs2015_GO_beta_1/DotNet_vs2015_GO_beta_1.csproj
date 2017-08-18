@@ -93,6 +93,8 @@
     <Content Include="images\logo.jpg" />
     <Content Include="images\me.png" />
     <Content Include="images\search.jpg" />
+    <Content Include="paticipant\Jion_single.aspx" />
+    <Content Include="paticipant\test.aspx" />
     <Content Include="system\edit.aspx" />
     <Content Include="system\login.aspx" />
     <Content Include="system\readonly.aspx" />
@@ -141,6 +143,22 @@
     </Compile>
     <Compile Include="launch\launch5.aspx.designer.cs">
       <DependentUpon>launch5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paticipant\App_Code\global.cs" />
+    <Compile Include="paticipant\App_Code\mysqlHelp.cs" />
+    <Compile Include="paticipant\Jion_single.aspx.cs">
+      <DependentUpon>Jion_single.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paticipant\Jion_single.aspx.designer.cs">
+      <DependentUpon>Jion_single.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paticipant\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paticipant\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="system\edit.aspx.cs">
