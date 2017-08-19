@@ -22,6 +22,7 @@ namespace SightzGo
                 Label3.Text = reader.GetString(8)+"~"+reader.GetString(9);
                 Label4.Text = reader.GetString(12);
                 Label5.Text = "10";
+                Label6.Text = "445549fdnhvsfdsfeaqivhregujdasvbfgnhjcdzsxvcbgkmckzAyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyydddddddddddddddddddhhhhhhhhhhhhhhhhhhhsssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddddddwwwwwwwwwwwwwi";
             }
             //GridView1_SelectedIndexChanged(sender,e);
             //判断登录状态；
@@ -36,27 +37,25 @@ namespace SightzGo
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            /*if (Session["name"] == null || Session["name"] == "")
+            if (Session["uid"] == null)
             {
-                Response.Write("<script>alert(\"请先登录！\");</script>");
                 Response.Redirect("../system/login.aspx");
                 return;
             }
-            else*/
+            else
             {
-                Response.Redirect("#");
+                Response.Redirect("../paticipant/Jion_single.aspx");
             }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            /*if (Session["name"] == null || Session["name"] == "")
+            if (Session["uid"] == null)
             {
-                Response.Write("<script>alert(\"请先登录！\");</script>");
                 Response.Redirect("../system/login.aspx");
                 return;
             }
-            else*/
+            else
             {
                 Response.Redirect("#");
             }

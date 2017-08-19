@@ -4,29 +4,44 @@ body {
     padding:0;
     background-color:#002D54;
 }
-.back {
+.back_left {
     text-align: left;
     font-family: 微软雅黑;
-    width:80%;
+    width:60%;
     height: 720px;
-    margin:30px auto;
+    margin:30px 0 30px 12%;
+    text-align:center;
+    border:0;
+    background-color: #FFFFFF;
+    position:relative;
+    float:left;
+}
+.back_right_top{
+    text-align: left;
+    font-family: 微软雅黑;
+    width:15%;
+    height: 355px;
+    margin:30px 0 10px 10px;
     text-align:center;
     border:0px 0px 0px 0px;
-}
-.back td{
     background-color: #FFFFFF;
+    position:relative;
+    float:left;
 }
-.title_back {
-    width:33%;
-    height: 80px;
+.back_right_top .class{
+    line-height:20px;
 }
-.back .left_back{
-    height:640px;
-}
-.back .right_back{
-    height:280px;
-    width:33%;
-
+.back_right_down {
+    text-align: left;
+    font-family: 微软雅黑;
+    width: 15%;
+    height: 355px;
+    margin: 0 0 30px 10px;
+    text-align: center;
+    border: 0px 0px 0px 0px;
+    background-color: #FFFFFF;
+    position: relative;
+    float: left;
 }
 h2.title {
     font-family: 微软雅黑;
@@ -42,5 +57,12 @@ h2.title {
     display: block;
     float: left;
     margin:0 10px;
+}
+#Label6{
+    display:block;
+    width:80%;
+    top:-200px;
+    margin-left:10%;
+    word-break:break-all;
 }
 
