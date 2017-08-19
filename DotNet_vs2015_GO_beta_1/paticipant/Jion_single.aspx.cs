@@ -12,30 +12,42 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["uid"] == null)
+           /* if (Session["uid"] == null)
             {
                 Response.Redirect("../system/login.aspx", false);
                 return;
-            }
+            }*/
 
                 if (!IsPostBack)
             {
-                int participant_id = Convert.ToInt32(Session["uid"]);
+                // int participant_id = Convert.ToInt32(Session["uid"]);
                 //String competiton_id = Session["competiton_id"].ToString();
-                MySqlDataReader reader = global.ParticipantInfo(135);
+                int participant_id = 136;
+                MySqlDataReader reader = global.ParticipantInfo(participant_id);
                 if (reader.Read())
                 {
-                    name.Text = reader.GetString(1);
-                    province.Text = reader.GetString(2);
-                    city.Text = reader.GetString(3);
-                    school.Text = reader.GetString(4);
-                    major.Text = reader.GetString(5);
-                    grade.Text = reader.GetString(6);
-                    number.Text = reader.GetString(7);
-                    email.Text = reader.GetString(8);
-                    telephone.Text = reader.GetString(9);
-                    wechat.Text = reader.GetString(10);
-                    sex.Text = reader.GetString(11);
+                    if (reader.IsDBNull(1)) name.Text = "";
+                    else     name.Text = reader.GetString(1);
+                    if (reader.IsDBNull(2)) province.Text = "";
+                    else province.Text = reader.GetString(2); 
+                    if (reader.IsDBNull(3)) city.Text = "";
+                    else city.Text = reader.GetString(3); 
+                    if (reader.IsDBNull(4)) school.Text = "";
+                    else school.Text = reader.GetString(4);
+                    if (reader.IsDBNull(5)) major.Text = "";
+                    else major.Text = reader.GetString(5); 
+                    if (reader.IsDBNull(6))grade.Text = "";
+                    else grade.Text = reader.GetString(6); 
+                    if (reader.IsDBNull(7)) number.Text = "";
+                    else number.Text = reader.GetString(7); 
+                    if (reader.IsDBNull(8))email.Text = "";
+                    else email.Text = reader.GetString(8); 
+                    if (reader.IsDBNull(9))telephone.Text = "";
+                    else  telephone.Text = reader.GetString(9); 
+                    if (reader.IsDBNull(10)) wechat.Text = "";
+                    else wechat.Text = reader.GetString(10);
+                    if (reader.IsDBNull(11)) sex.Text = "";
+                    else sex.Text = reader.GetString(11); 
                 }
                 else Server.Transfer("test.aspx");
             }
@@ -126,10 +138,12 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
             }
             //int participant_id = Convert.ToInt32(Session["participant_id"]);
             //String competiton_id = Session["competiton_id"].ToString();
-            int success=global.Join(1, Realname, Province, City, School, Major, Grade, Number, Email, Telephone, Wechat, Sex, Teachername, Teacherinfo, "099c182ed2f041afb73a7c1145d3d789");
+            int participant_id = 136;
+            int success=global.Join(participant_id, Realname, Province, City, School, Major, Grade, Number, Email, Telephone, Wechat, Sex, Teachername, Teacherinfo, "099c182ed2f041afb73a7c1145d3d789");
             if(success==1)
             {
                 Response.Write("<script>alert('报名成功')</script>");
+                Response .Redirect("/detail/Game_details.aspx");
                 return;
             }
 

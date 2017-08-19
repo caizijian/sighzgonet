@@ -23,12 +23,16 @@ namespace edit
             MySqlDataReader reader = global.HostInfo(host_id);
             if (reader.Read())
             {
-                string managername = reader.GetString(4);
-                Label1.Text = reader.GetString(4);
-                Label2.Text = reader.GetString(1);
-                Label5.Text = reader.GetString(3);
-                Label6.Text = reader.GetString(7);
-                Label7.Text = reader.GetString(5);
+                if (reader.IsDBNull(1)) Label1.Text = "";
+                else Label1.Text = reader.GetString(4);
+                if (reader.IsDBNull(1)) Label2.Text = "";
+                else Label2.Text = reader.GetString(1);
+                if (reader.IsDBNull(1)) Label5.Text = "";
+                else Label5.Text = reader.GetString(3);
+                if (reader.IsDBNull(1)) Label6.Text = "";
+                else Label6.Text = reader.GetString(7);
+                if (reader.IsDBNull(1)) Label7.Text = "";
+                else Label7.Text = reader.GetString(5);
             }         
         }
 

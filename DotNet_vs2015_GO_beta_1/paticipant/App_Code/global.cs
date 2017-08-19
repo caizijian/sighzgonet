@@ -97,6 +97,16 @@ public class global{
         else return ((int)mysqlHelp.ExecuteScalar(sql,p));
     }
 
+    private static string CreateId()
+    {
+        long i = 1;
+        foreach (byte b in Guid.NewGuid().ToByteArray())
+        {
+            i *= ((int)b + 1);
+        }
+        return string.Format("{0:x}", i - DateTime.Now.Ticks);
+    }
+
 
     public static int Join(int id, string realname, string province, string city, string school, string major, string grade, string number, string email, string telephone, string wechat, string sex,string teachername,string teacherinfo,string competition_id)
     {
@@ -144,12 +154,12 @@ public class global{
 
 
      
-     RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+    /* RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
      byte[] buff = new byte[16];
      rng.GetBytes(buff);
+     */
 
-
-        string team_id = Convert.ToBase64String(buff);
+        string team_id = CreateId();
         string date = DateTime.Now.ToString();
 
         string sql = "insert team (id,teachername,teacherinfo)values(?id,?teachername,?teacherinfo)";
