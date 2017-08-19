@@ -10,26 +10,26 @@ namespace edit
 {
     public class EDITOR
     {
-        public int saveedit(string managername, string companyname, string mainbusiness, string  wechat, string  telephone)
+        public int saveedit(string managername, string companyname, string mainbusiness, string  wechat, string  telephone,int id)
         {
             string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
             MySqlConnection con = new MySqlConnection(str);//实例化链接
             con.Open();//开启连接
-            string strcmd = "select sertification from host where id=105";// + username.Text + "'and password='" + password.Text + "' ";
+            string strcmd = "select certification from host where id='"+id+"'";// + username.Text + "'and password='" + password.Text + "' ";
             MySqlCommand cmd = new MySqlCommand(strcmd, con);
             MySqlDataAdapter ada = new MySqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             ada.Fill(ds, "gg");//查询结果填充数据集     
             if (ds == null || ds.Tables.Count == 0 || (ds.Tables.Count == 1 && ds.Tables[0].Rows.Count == 0))
             {
-                string strcmd1 = "insert into user (managername,companyname,mainbusiness,wechat,telephone) VALUES ('" + managername + " ','" + companyname + "','" + mainbusiness + "','" + wechat + "','" + telephone + "')";
+                string strcmd1 = "insert into user (managername,companyname,mainbusiness,wechat,telephone,id) VALUES ('" + managername + " ','" + companyname + "','" + mainbusiness + "','" + wechat + "','" + telephone + "'"+id+"')";
                 MySqlCommand cmd1 = new MySqlCommand(strcmd1, con);
                 cmd1.ExecuteNonQuery();
                 return 1;
             }
             else if (ds.Tables[0].Rows.Count > 0)
             {
-                string strcmd2 = "UPDATE host SET managername = '" + managername + "',wechat = '" + wechat + "',telephone = '" + telephone + "' WHERE id = '105'";
+                string strcmd2 = "UPDATE host SET managername = '" + managername + "',wechat = '" + wechat + "',telephone = '" + telephone + "',companyname ='"+ companyname+ "',mainbusiness ='" + mainbusiness + "' WHERE id = '" +id+"'";
                 MySqlCommand cmd2 = new MySqlCommand(strcmd2, con);
                 cmd2.ExecuteNonQuery();
                 return 1;

@@ -132,7 +132,8 @@ div.content h3{
         <div class="lineone"></div><hr />
         <br /><br />
          <span class="sl-custom-file">
-         <asp:Button ID="changehead" runat="server" Text="更改头像" /><asp:FileUpload ID="FileUpload1" runat="server" />
+             <p><asp:Image ID="head" runat="server" style="height:100px;margin-left:300px;margin-bottom:10px;"/></p>
+         <asp:Button ID="changehead" runat="server" Text="更改头像" OnClick="changehead_Click" style="margin-left:300px;margin-right:50px;" /><asp:FileUpload ID="FileUpload1" runat="server" />
          </span>
         <!--<input type="file" name="head" class="" accept="image/*" >-->
         <br /><br /><br /><br /><br />
@@ -140,25 +141,25 @@ div.content h3{
         <div class="lineone"></div><hr />
         <div class="text">
             <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>负责人姓名：</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="menagername" runat="server" style="margin-left:20px; width :240px;display:inline;" OnTextChanged="menagername_TextChanged" MaxLength="30"></asp:TextBox></div></div>
+            <div style="width:280px;display:inline;"><asp:TextBox ID="menagername" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="30"></asp:TextBox></div></div>
 
             <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>公司/组织名称：</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="companyname" runat="server" style="margin-left:20px; width :240px;display:inline;" OnTextChanged="companyname_TextChanged" MaxLength="30"></asp:TextBox></div></div>
+            <div style="width:280px;display:inline;"><asp:TextBox ID="companyname" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="30"></asp:TextBox></div></div>
 
-            <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>营业执照：</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="TextBox9" runat="server" style="margin-left:20px; width :240px;display:inline;" OnTextChanged="TextBox9_TextChanged"></asp:TextBox></div></div>
+            <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>营业执照(或其他证明文件)：</p></div>
+            <div style="width:280px;display:inline;">
+                <asp:Button ID="update" runat="server" Text="上传" style="margin-left:20px; width :80px;display:inline;" OnClick="update_Click" /><asp:FileUpload ID="FileUpload2" runat="server" style="margin-left:20px;" /></div></div>
 
-            <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>(或其他证明文件)</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="TextBox10" runat="server" style="margin-left:20px; width :240px;display:inline;" OnTextChanged="TextBox10_TextChanged"></asp:TextBox></div></div>
+
 
             <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>主营业务：</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="mainbusiness" runat="server" style="margin-left:20px; width :240px;display:inline;" OnTextChanged="mainbusiness_TextChanged" MaxLength="300"></asp:TextBox></div></div>
+            <div style="width:280px;display:inline;"><asp:TextBox ID="mainbusiness" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="300"></asp:TextBox></div></div>
 
             <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>微信号：</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="wechat" runat="server" style="margin-left:20px; width :240px;display:inline;" OnTextChanged="wechat_TextChanged" MaxLength="20"></asp:TextBox></div></div>
+            <div style="width:280px;display:inline;"><asp:TextBox ID="wechat" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="20"></asp:TextBox></div></div>
 
              <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>联系电话：</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="telephone" runat="server" style="margin-left:20px; width :240px;display:inline;" OnTextChanged="telephone_TextChanged" MaxLength="11"></asp:TextBox></div></div>
+            <div style="width:280px;display:inline;"><asp:TextBox ID="telephone" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="11"></asp:TextBox></div></div>
 
              <div style="margin-top:10px;float:left;width:100%">
              <asp:Button ID="save" runat="server" Text="保存" OnClick="save_Click" /> <asp:Button ID="cancel" runat="server" Text="取消" OnClick="cancel_Click" /></div>

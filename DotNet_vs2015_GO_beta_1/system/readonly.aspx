@@ -138,7 +138,7 @@ div.content h3{
         <div class="lineone"></div><hr />
         <br /><br />
          <span class="sl-custom-file">
-         <asp:Button ID="changehead" runat="server" Text="更改头像" /><asp:FileUpload ID="FileUpload1" runat="server" />
+             <p><asp:Image ID="head" runat="server" style="height:100px;margin-left:300px;"/></p>
          </span>
         <br /><br /><br /><br /><br />
         <h3>基本资料</h3>
@@ -166,9 +166,8 @@ div.content h3{
             </div>
 
             <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>主营业务：</p></div>
-            <div style="width:280px;display:inline;"></div>
-                <div style="width:280px;display:inline;">
-                    <asp:Label ID="Label5" runat="server" style="margin-left:20px; width :240px;display:inline;" Text="业务"></asp:Label>
+                <div style="width:240px;display:inline;">
+                    <asp:Label ID="Label5" runat="server" style="margin-left:20px; width :240px;word-break:break-all; display:inline;" Text="业务"></asp:Label>
                 </div>
             </div>
 

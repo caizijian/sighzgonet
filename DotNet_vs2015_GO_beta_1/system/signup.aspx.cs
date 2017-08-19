@@ -46,7 +46,7 @@ namespace login
 
 
                         Response.Write("<script>alert('注册成功！')</script>");
-                        
+                        Response.Redirect("Home.html", false);
                     }
                     else if (RadioButtonList1.SelectedValue == "参赛者")
                     {

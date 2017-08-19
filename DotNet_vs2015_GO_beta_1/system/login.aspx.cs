@@ -41,7 +41,7 @@ namespace login
             }
             Session["uid"] = id;
 
-            Response.Write("<script>alert('登陆成功')</script>");
+            Response.Write("<script>alert('登录成功！')</script>");
             Server.Transfer("Home.html");
             /* if(check(username.Text, password.Text))
              {
