@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,9 +17,14 @@ namespace WebApplication1
 
         protected void Button1_Click(object sender, System.EventArgs e)
         {
-            string url;
-            url = "launch5.aspx";
-            Response.Redirect(url);
+            string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
+            MySqlConnection con = new MySqlConnection(str);//实例化链接
+            con.Open();
+            string strcmd = "update competition set content=?content  where id=?id";
+            MySqlCommand cmd = new MySqlCommand(strcmd, con);
+            cmd.Parameters.AddWithValue("?id", Session["id"]);
+            cmd.Parameters.AddWithValue("?content", content.Text);
+            Response.Redirect("launch5.aspx");
         }
     }
 }

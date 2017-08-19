@@ -13,10 +13,10 @@ namespace WebApplication1
         {
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, System.EventArgs e)
         {
-            Response.Redirect("Home.html",false);
+            Response.Redirect("../system/Home.html", false);
+            return;
         }
     }
 }

@@ -12,13 +12,13 @@
         }
         .auto-style2 {
             width: 100%;
-            height: 558px;
+            height: 650px;
         }
         .auto-style3 {
             height: 61px;
         }
         .auto-style4 {
-            height: 366px;
+            height: 396px;
         }
         .auto-style5 {
             width: 523px;
@@ -29,7 +29,7 @@
             width: 173px;
         }
         .auto-style7 {
-            height: 366px;
+            height: 396px;
             width: 173px;
         }
         .auto-style8 {
@@ -40,7 +40,7 @@
             width: 522px;
         }
         .auto-style10 {
-            height: 366px;
+            height: 396px;
             width: 522px;
         }
         .auto-style11 {

@@ -37,17 +37,17 @@
         }
         .auto-style9 {
             height: 61px;
-            width: 560px;
+            width: 580px;
         }
         .auto-style10 {
             height: 366px;
-            width: 560px;
+            width: 580px;
         }
         .auto-style11 {
-            width: 560px;
+            width: 580px;
         }
         .auto-style12 {
-            width: 100%;
+            width: 127%;
             height: 300px;
         }
         .auto-style13 {
@@ -81,6 +81,13 @@
         .auto-style21 {
             height: 41px;
         }
+        .auto-style22 {
+            width: 185px;
+            height: 50px;
+        }
+        .auto-style23 {
+            height: 50px;
+        }
         </style>
 </head>
 <body>
@@ -99,29 +106,15 @@
                 <td class="auto-style10">
                     <table class="auto-style12">
                         <tr>
-                            <td class="auto-style13">
+                            <td class="auto-style22">
                                 <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 主办方名称：</td>
-                            <td>
-                                <asp:DropDownList ID="DropDownList1" runat="server" Height="23px" Width="66px">
-                                    <asp:ListItem>请选择</asp:ListItem>
-                                    <asp:ListItem>广东</asp:ListItem>
-                                    <asp:ListItem>北京</asp:ListItem>
-                                    <asp:ListItem>上海</asp:ListItem>
-                                </asp:DropDownList>
-&nbsp;省 
-                                <asp:DropDownList ID="DropDownList2" runat="server" Height="23px">
-                                    <asp:ListItem>请选择</asp:ListItem>
-                                    <asp:ListItem>广州</asp:ListItem>
-                                    <asp:ListItem>深圳</asp:ListItem>
-                                </asp:DropDownList>
-&nbsp;市 
-                                <asp:DropDownList ID="DropDownList3" runat="server" Height="23px" Width="66px">
-                                    <asp:ListItem>请选择</asp:ListItem>
-                                    <asp:ListItem>天河区</asp:ListItem>
-                                    <asp:ListItem>增城区</asp:ListItem>
-                                </asp:DropDownList>
-&nbsp;区</td>
+                            <td class="auto-style23">
+                                &nbsp;<asp:DropDownList ID="bind_Province" CssClass="styled" runat="server" AutoPostBack="True" onselectedindexchanged="bind_Province_SelectedIndexChanged" Height="24px" Width="77px"> 
+                                </asp:DropDownList>&nbsp;省 <asp:DropDownList ID="bind_City" CssClass="styled" runat="server" AutoPostBack="True" onselectedindexchanged="bind_City_SelectedIndexChanged" Height="24px" Width="84px">
+                                </asp:DropDownList>&nbsp;市 <asp:DropDownList ID="Bind_Area" CssClass="styled" runat="server" Height="24px" Width="83px" AutoPostBack="True">
+                                </asp:DropDownList>&nbsp;区
+                            </td>
                         </tr>
                       <tr>
                             <td class="auto-style13">&nbsp;</td>

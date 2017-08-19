@@ -10,7 +10,11 @@ namespace WebApplication1
     public partial class _1 : System.Web.UI.Page
     { protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["uid"] == null)
+            {
+                Response.Redirect("../system/login.aspx", false);
+                return;
+            }
         }
 
         protected void Button1_Click(object sender, System.EventArgs e)

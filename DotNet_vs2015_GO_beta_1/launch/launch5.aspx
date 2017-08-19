@@ -139,7 +139,7 @@
                         <tr>
                             <td class="auto-style29"></td>
                             <td class="auto-style30">
-                                <asp:Button ID="Button1" runat="server" BackColor="#002D54" BorderWidth="0px" Font-Size="Large" ForeColor="White" Height="26px" Text="关闭" Width="81px" />
+                                <asp:Button ID="Button1" runat="server" BackColor="#002D54" BorderWidth="0px" Font-Size="Large" ForeColor="White" Height="26px" Text="关闭" Width="81px" OnClick="Button1_Click" />
                             </td>
                             <td class="auto-style31"></td>
                         </tr>

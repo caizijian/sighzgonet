@@ -88,8 +88,8 @@ namespace WebApplication1
             if (check(competitionname.Text, signupstarttime.Text,ddl.Text,
            starttime.Text, endtime.Text,maxbouns.Text,minmember.Text,maxmember.Text))
             {
-                Console.WriteLine(Session["managername"]);
-                Response.Write(Session["managername"]);
+              //  Console.WriteLine(Session["managername"]);
+             //   Response.Write(Session["managername"]);
                 string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
                 MySqlConnection con = new MySqlConnection(str);//实例化链接
                 con.Open();//开启连接
@@ -127,6 +127,7 @@ namespace WebApplication1
                     string strcmd1 = "insert into launchcompetition (competition_id,host_id)values (?competition_id,1)";
                     MySqlCommand cmd = new MySqlCommand(strcmd, con);
                     string id = GenerateId();
+                    Session["id"] = id;
                     cmd.Parameters.AddWithValue("?id", id);
                     cmd.Parameters.AddWithValue("?competitionname", competitionname.Text);
                     cmd.Parameters.AddWithValue("?signupstarttime", signupstarttime.Text);
@@ -158,8 +159,6 @@ namespace WebApplication1
                     }
 
                 }
-
-
                 con.Close();//关闭连接
                 Response.Redirect("launch4.aspx");
             }

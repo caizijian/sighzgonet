@@ -17,11 +17,69 @@ namespace WebApplication1
 {
     public partial class _2 : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                BindProvince();
+                BindCity(bind_Province.SelectedItem.Value);
+                BindArea(bind_City.SelectedItem.Value);
+            }
         }
+
+        private void BindProvince()    //绑定省市县的三个下拉菜单
+        {      
+            string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
+            MySqlConnection con = new MySqlConnection(str);//实例化链接
+            string strcmd = "select provinceid,province from provinces";
+            MySqlDataAdapter myda = new MySqlDataAdapter(strcmd, con);
+            DataSet ds = new DataSet();
+            con.Open();
+            myda.Fill(ds);
+            con.Close();
+            bind_Province.DataSource = ds.Tables[0];
+            bind_Province.DataValueField = "provinceid";
+            bind_Province.DataTextField = "province";
+            bind_Province.DataBind();
+        }
+
+        private void BindCity(string code)
+        {
+            string sql = "select cityid,city from cities where provinceid='" + code + "'";
+            //省份和城市进行关联
+            string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
+            MySqlConnection con = new MySqlConnection(str);//实例化链接
+            MySqlDataAdapter myda = new MySqlDataAdapter(sql, con);
+            DataSet ds = new DataSet();
+            con.Open();
+            myda.Fill(ds);
+            con.Close();
+            bind_City.DataSource = ds.Tables[0];
+            bind_City.DataValueField = "cityid";
+            bind_City.DataTextField = "city";
+            bind_City.DataBind();
+        }
+        private void BindArea(string code)
+        {
+            string sql = "select areaid,area from areas where cityid='" + code + "'";
+            //省份和城市进行关联
+            string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
+            MySqlConnection con = new MySqlConnection(str);//实例化链接
+            MySqlDataAdapter myda = new MySqlDataAdapter(sql, con);
+            DataSet ds = new DataSet();
+            con.Open();
+            myda.Fill(ds);
+            con.Close();
+            Bind_Area.DataSource = ds.Tables[0];
+            Bind_Area.DataValueField = "areaid";
+            Bind_Area.DataTextField = "area";
+            Bind_Area.DataBind();
+        }
+      
+
+
+
+       
 
         protected void btn_upload_Click(object sender, EventArgs e)
         {
@@ -38,12 +96,12 @@ namespace WebApplication1
                     //对上传文件的大小进行检测，限定文件最大不超过8M
                     if (pic_upload.PostedFile.ContentLength < 8192000)
                     {
-                        string filepath = "/images/";
+                        string filepath = "/上传图片/";
                         if (Directory.Exists(Server.MapPath(filepath)) == false)//如果不存在就创建file文件夹
                         {
                             Directory.CreateDirectory(Server.MapPath(filepath));
                         }
-                        string virpath = filepath + Session["uid"];//这是存到服务器上的虚拟路径
+                        string virpath = filepath + DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss-fffffff") + Session["uid"] + fileExtension;//;//这是存到服务器上的虚拟路径
                         string mappath = Server.MapPath(virpath);//转换成服务器上的物理路径
                         pic_upload.PostedFile.SaveAs(mappath);//保存图片
                         //显示图片
@@ -93,10 +151,6 @@ namespace WebApplication1
             return isimage;
         }
 
-
- 
-
-
         protected bool check(string managername, string telephone ,string email)
         {
       
@@ -124,8 +178,7 @@ namespace WebApplication1
                 //  string str = "Server=localhost;User ID=root;Password=1548936563ry?;Database=launch;CharSet=utf8;";
                 string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
                 MySqlConnection con = new MySqlConnection(str);//实例化链接
-                con.Open();
-                //开启连接   
+                con.Open();   //开启连接   
                 // string strcmd = "insert into host (id,managername,telephone,wechat)values (?id,?managername,?telephone,?wechat)";
                 string strcmd = "update host set managername=?managername,telephone=?telephone,wechat=?wechat where id=?id";
                 MySqlCommand cmd = new MySqlCommand(strcmd, con);
@@ -145,6 +198,29 @@ namespace WebApplication1
         protected void email_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void city_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlProvince_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
+            MySqlConnection con = new MySqlConnection(str);//实例化链接
+            con.Open();    //开启连接  
+        }
+
+        protected void bind_Province_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindCity(bind_Province.SelectedItem.Value);
+            BindArea(bind_City.SelectedItem.Value);
+        }
+
+        protected void bind_City_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindArea(bind_City.SelectedItem.Value);
         }
     }
     }

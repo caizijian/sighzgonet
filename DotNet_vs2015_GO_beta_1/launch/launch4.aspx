@@ -89,7 +89,7 @@
                         </tr>
                         <tr>
                             <td class="auto-style18">
-                                <asp:TextBox ID="content" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#CCCCCC" Height="206px" Width="521px">        请输入赛事正文</asp:TextBox>
+                                <asp:TextBox ID="content" runat="server" Font-Bold="True"  Height="206px" Width="521px"  Placeholder="公司/社会团体/学生社团名称等">    </asp:TextBox>
                             </td>                        
                         </tr>
                          <tr>
