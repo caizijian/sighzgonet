@@ -14,29 +14,42 @@ namespace SightzGo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            MySqlDataReader reader = global.CompetitionInfo(4);
+            //String competiton_id = Session["competiton_id"].ToString();
+            String competiton_id = "099c182ed2f041afb73a7c1145d3d789";
+            MySqlDataReader reader = global.CompetitionInfo(competiton_id);
+            //查询比赛详情，需要提交[赛事ID]
+            //传入赛事ID需为int型
+            //如果传入参数不为int型，将会发生错误，无法运行
+            //LG 289855991@qq.com 2017/08/19
             if (reader.Read())
             {
                 Label1.Text = reader.GetString(1);
                 Label2.Text = reader.GetString(4);
-                Label3.Text = reader.GetString(8)+"~"+reader.GetString(9);
+                Label3.Text = reader.GetDateTime(8)+"~"+reader.GetDateTime(9);
                 Label4.Text = reader.GetString(12);
-                Label5.Text = "10";
+
+                //计算报名截止剩余天数，无需传参
+                //暂时未加入[判断]是否为负数
+                //LG 289855991@qq.com 2017/08/19
+                {
+                    DateTime ddl = reader.GetDateTime(8);
+                    DateTime dt = DateTime.Now;
+                    System.TimeSpan time = ddl - dt;
+                    string timeStr = time.TotalDays.ToString();
+                    string res = Math.Floor(Convert.ToDouble(timeStr)).ToString();
+                    Label5.Text = res;
+                }                
                 Label6.Text = "445549fdnhvsfdsfeaqivhregujdasvbfgnhjcdzsxvcbgkmckzAyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyydddddddddddddddddddhhhhhhhhhhhhhhhhhhhsssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddddddwwwwwwwwwwwwwi";
             }
-            //GridView1_SelectedIndexChanged(sender,e);
-            //判断登录状态；
-            /* if (Session["name"] == null || Session["name"] == "")
-             {
-                 Response.Write("<script>alert(\"请先登录！\");</script>");
-                 Response.Redirect("../system/login.aspx");
-                 return;
-             }*/
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            //该函数实现什么计算，提交什么数据
+            //使用时候需要注意什么问题
+            //如果传入参数存在什么问题，会导致什么问题
+            // ccdf
             if (Session["uid"] == null)
             {
                 Response.Redirect("../system/login.aspx");

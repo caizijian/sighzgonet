@@ -69,7 +69,7 @@ public class global{
 
     //显示比赛详情
     
- public static MySqlDataReader CompetitionInfo(int id)
+ public static MySqlDataReader CompetitionInfo(string id)
     {
         //加判断输入+是否存在
         string sql = "select * from competition where id=?id";

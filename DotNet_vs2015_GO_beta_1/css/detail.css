@@ -62,6 +62,7 @@ h2.title {
     display:block;
     width:80%;
     top:-200px;
+    text-align:left;
     margin-left:10%;
     word-break:break-all;
 }
