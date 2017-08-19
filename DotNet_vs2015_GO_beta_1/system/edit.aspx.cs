@@ -11,7 +11,12 @@ namespace edit
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            save.Attributes["OnClick"] = "return confirm('您是否确认信息无误，若一经审核通过，将无法更改与公司相关的信息！')";
+            if (Session["uid"] == null)
+            {
+                Response.Redirect("../system/login.aspx", false);
+                return;
+            }
+                save.Attributes["OnClick"] = "return confirm('您是否确认信息无误，若一经审核通过，将无法更改与公司相关的信息！')";
         }
         
         protected void menagername_TextChanged(object sender, EventArgs e)

@@ -13,22 +13,25 @@ namespace edit
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            EDITOR SH = new EDITOR();
-            int temp=SH.show();
-            if (temp == 1)
-                Response.Write("<script>alert('请您尽快编辑并提交个人资料！')</script>");
-            if (temp == 0)
-                Response.Write("<script>alert('查询不到您的资料，发生错误！')</script>");
+            if (Session["uid"] == null)
+            {
+                Response.Redirect("../system/login.aspx", false);
+                return;
+            }
+           // int host_id = 106;
+            int host_id = (int)Session["uid"];           
+            MySqlDataReader reader = global.HostInfo(host_id);
+            if (reader.Read())
+            {
+                string managername = reader.GetString(4);
+                Label1.Text = reader.GetString(4);
+                Label2.Text = reader.GetString(1);
+                Label5.Text = reader.GetString(3);
+                Label6.Text = reader.GetString(7);
+                Label7.Text = reader.GetString(5);
+            }         
         }
-        public  void  changelabel(MySqlDataReader reader)
-        {
-            Label1.Text = reader.GetString(4);
-            Label2.Text = reader.GetString(1);
-            Label5.Text = reader.GetString(3);
-            Label6.Text = reader.GetString(7);
-            Label7.Text = reader.GetString(5);
-            //ds.Tables[0].Rows[0]["telephone"].ToString();
-        }
+
         protected void revise_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/system/edit.aspx", false);

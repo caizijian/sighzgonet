@@ -26,7 +26,7 @@ public class mysqlHelp
         if (trans != null)
             cmd.Transaction = trans;
 
-        cmd.CommandType = CommandType.Text;//???有卵用
+        cmd.CommandType = CommandType.Text;
 
         if (cmdParms != null)     //填入参数
         {

@@ -53,6 +53,12 @@ div.content h3{
     text-decoration: none;
 }
     </style>
+    <script>
+        function change(string )
+            {
+            document.getElementById("uname").value = "abc";
+            }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">

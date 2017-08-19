@@ -12,43 +12,51 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            int participant_id = Convert.ToInt32(Session["participant_id"]);
-            //String competiton_id = Session["competiton_id"].ToString();
-            MySqlDataReader reader = global.ParticipantInfo(participant_id);
-            if (reader.Read())
+            if (Session["uid"] == null)
             {
-                name.Text = reader.GetString(1);
-                province.Text = reader.GetString(2);
-                city.Text = reader.GetString(3);
-                school.Text = reader.GetString(4);
-                major.Text = reader.GetString(5);
-                grade.Text = reader.GetString(6);
-                number.Text = reader.GetString(7);
-                email.Text = reader.GetString(8);
-                telephone.Text = reader.GetString(9);
-                wechat.Text = reader.GetString(10);
-                sex.Text = reader.GetString(11);
+                Response.Redirect("../system/login.aspx", false);
+                return;
             }
-            else Server.Transfer("test.aspx");
+
+                if (!IsPostBack)
+            {
+                int participant_id = Convert.ToInt32(Session["uid"]);
+                //String competiton_id = Session["competiton_id"].ToString();
+                MySqlDataReader reader = global.ParticipantInfo(135);
+                if (reader.Read())
+                {
+                    name.Text = reader.GetString(1);
+                    province.Text = reader.GetString(2);
+                    city.Text = reader.GetString(3);
+                    school.Text = reader.GetString(4);
+                    major.Text = reader.GetString(5);
+                    grade.Text = reader.GetString(6);
+                    number.Text = reader.GetString(7);
+                    email.Text = reader.GetString(8);
+                    telephone.Text = reader.GetString(9);
+                    wechat.Text = reader.GetString(10);
+                    sex.Text = reader.GetString(11);
+                }
+                else Server.Transfer("test.aspx");
+            }
         }
 
 
         protected void sure_Click(object sender, EventArgs e)
         {
-            String Realname = name.Text;
-            String Province = province.Text;
-            String City = city.Text;
-            String School = school.Text;
-            String Major = major.Text;
-            String Grade = grade.Text;
-            String Number = number.Text;
-            String Email = email.Text;
-            String Telephone = telephone.Text;
-            String Wechat = wechat.Text;
-            String Sex = sex.Text;
-            String Teachername = teachername .Text;
-            String Teacherinfo = teacherinfo.Text;
+            string Realname = name.Text;
+            string Province = province.Text;
+            string City = city.Text;
+            string School = school.Text;
+            string Major = major.Text;
+            string Grade = grade.Text;
+            string Number = number.Text;
+            string Email = email.Text;
+            string Telephone = telephone.Text;
+            string Wechat = wechat.Text;
+            string Sex = sex.Text;
+            string Teachername = teachername .Text;
+            string Teacherinfo = teacherinfo.Text;
 
 
             if (Realname == null||Realname == "")
@@ -116,8 +124,18 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
                 Response.Write("<script>alert('请完善报名信息')</script>");
                 return;
             }
-        }
+            //int participant_id = Convert.ToInt32(Session["participant_id"]);
+            //String competiton_id = Session["competiton_id"].ToString();
+            int success=global.Join(1, Realname, Province, City, School, Major, Grade, Number, Email, Telephone, Wechat, Sex, Teachername, Teacherinfo, "099c182ed2f041afb73a7c1145d3d789");
+            if(success==1)
+            {
+                Response.Write("<script>alert('报名成功')</script>");
+                return;
+            }
 
+
+        }
+       
      
     }
 }
