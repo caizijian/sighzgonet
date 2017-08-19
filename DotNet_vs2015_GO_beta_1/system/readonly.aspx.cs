@@ -18,8 +18,8 @@ namespace edit
                 Response.Redirect("../system/login.aspx", false);
                 return;
             }
-            int host_id = 106;
-            //String competiton_id = Session["competiton_id"].ToString();
+           // int host_id = 106;
+            int host_id = (int)Session["uid"];           
             MySqlDataReader reader = global.HostInfo(host_id);
             if (reader.Read())
             {

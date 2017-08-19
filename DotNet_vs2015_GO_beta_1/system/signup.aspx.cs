@@ -50,7 +50,7 @@ namespace login
                     }
                     else if (RadioButtonList1.SelectedValue == "参赛者")
                     {
-                        strcmd1 = "insert into user (username,password) VALUES ('" + username.Text.Trim() + " ','" + password.Text.Trim() + "','" + 2 + "')";
+                        strcmd1 = "insert into user (username,password,type) VALUES ('" + username.Text.Trim() + " ','" + password.Text.Trim() + "','" + 2 + "')";
                         MySqlCommand cmd1 = new MySqlCommand(strcmd1, con);
                         cmd1.ExecuteNonQuery();
                         Response.Write("<script>alert('注册成功！')</script>");

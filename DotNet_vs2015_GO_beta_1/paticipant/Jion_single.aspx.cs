@@ -17,11 +17,12 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
                 Response.Redirect("../system/login.aspx", false);
                 return;
             }
+
                 if (!IsPostBack)
             {
-                //int participant_id = Convert.ToInt32(Session["participant_id"]);
+                int participant_id = Convert.ToInt32(Session["uid"]);
                 //String competiton_id = Session["competiton_id"].ToString();
-                MySqlDataReader reader = global.ParticipantInfo(1);
+                MySqlDataReader reader = global.ParticipantInfo(135);
                 if (reader.Read())
                 {
                     name.Text = reader.GetString(1);
