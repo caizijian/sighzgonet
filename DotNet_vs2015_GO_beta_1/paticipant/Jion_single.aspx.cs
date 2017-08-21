@@ -143,11 +143,11 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
             if(success==1)
             {
                 Response.Write("<script>alert('报名成功')</script>");
-                Response .Redirect("/detail/Game_details.aspx");
-                return;
+                Response.Redirect("/detail/Game_details.aspx");
+
             }
-
-
+         
+           
         }
        
      
