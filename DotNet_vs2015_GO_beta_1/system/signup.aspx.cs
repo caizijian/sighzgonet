@@ -18,8 +18,11 @@ namespace login
 
         protected void next_Click(object sender, EventArgs e)
         {
+            //注册功能
+            //CZJ 392067117@qq.com 2017/08/22
             if (check())
             {
+                //判断是否符合格式要求
                 string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
                 MySqlConnection con = new MySqlConnection(str);//实例化链接
                 con.Open();//开启连接
@@ -32,12 +35,14 @@ namespace login
                 if (ds == null || ds.Tables.Count == 0 || (ds.Tables.Count == 1 && ds.Tables[0].Rows.Count == 0))
                 {
                     string strcmd1;
+                    //判断用户身份是主办方还是参赛者
                     if (RadioButtonList1.SelectedValue == "主办方")
                     {
+                        //在用户表中插入
                         strcmd1 = "insert into user (username,password,type) VALUES ('" + username.Text.Trim() + " ','" + password.Text.Trim() + "','" + 1 + "')";
                         MySqlCommand cmd1 = new MySqlCommand(strcmd1, con);
                         cmd1.ExecuteNonQuery();
-
+                        //初始化主办方表中的用户信息
                         int id = global.Login(username.Text.Trim(), password.Text.Trim());
                         strcmd1 = "insert into host (id) values ('" + id + " ')";
                         Session["uid"] = id;
@@ -50,10 +55,12 @@ namespace login
                     }
                     else if (RadioButtonList1.SelectedValue == "参赛者")
                     {
+                        //在用户表中插入
                         strcmd1 = "insert into user (username,password,type) VALUES ('" + username.Text.Trim() + " ','" + password.Text.Trim() + "','" + 2 + "')";
                         MySqlCommand cmd1 = new MySqlCommand(strcmd1, con);
                         cmd1.ExecuteNonQuery();
 
+                        //初始化主办方表中的用户信息
                         int id = global.Login(username.Text.Trim(), password.Text.Trim());
                         strcmd1 = "insert into participant (id) values ('" + id + " ')";
                         Session["uid"] = id;
@@ -74,6 +81,10 @@ namespace login
                 }
             }
         }
+
+        //判断是否符合格式要求
+        //bug 弹窗太多，后将改用空间的显示与隐藏
+        //CZJ 392067117@qq.com 2017/08/22
         protected bool check()
         {
             bool flag = true; ;

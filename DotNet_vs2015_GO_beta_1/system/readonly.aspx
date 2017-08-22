@@ -155,19 +155,18 @@ div.content h3{
                 </div>
             </div>
 
-            <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>营业执照：</p></div>
-            <div style="width:280px;display:inline;"> <asp:Label ID="Label3" runat="server" Text="执照" style="margin-left:20px; width :240px;display:inline;"></asp:Label></div></div>
+            <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>营业执照(或其他证明文件)：</p></div>
+            <div style="width:280px;display:inline;">
 
-            <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>(或其他证明文件)</p></div>
-            <div style="width:280px;display:inline;"></div>
                 <div style="width:280px;display:inline;">
-                    <asp:Label ID="Label4" runat="server" style="margin-left:20px; width :240px;display:inline;" Text="文件"></asp:Label>
+                    <asp:Label ID="Label4" runat="server" style="margin-left:20px; width :240px;display:inline;" Text="待审核" visible="true" ></asp:Label>
+                    <asp:Image ID="evidence"  runat="server" visible="false" />
                 </div>
             </div>
 
             <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>主营业务：</p></div>
                 <div style="width:240px;display:inline;">
-                    <asp:Label ID="Label5" runat="server" style="margin-left:20px; width :240px;word-break:break-all; display:inline;" Text="业务"></asp:Label>
+                    <asp:TextBox ID="Label5" runat="server" TextMode="MultiLine" ReadOnly="True" Style="margin-left:20px; Height:100px;display:inline;" BackColor="#002D54" BorderColor="#002D54" Font-Size="Larger" ForeColor="White"></asp:TextBox >
                 </div>
             </div>
 
@@ -191,11 +190,8 @@ div.content h3{
        
 </div>
 
-
-
-
-
-    <div id="footer">
+        </div>
+        <div id="footer">
         <div class="footBack">
             <div class="footText1">
                 <a href="#"><h4>关于我们</h4></a>
@@ -215,7 +211,6 @@ div.content h3{
                 <a href="#"><p>敬请期待</p></a>
                 <a href="#"><p>敬请期待</p></a>
             </div>
-        </div>
         </div>
         </div>
     </div>

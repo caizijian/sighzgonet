@@ -152,14 +152,14 @@ div.content h3{
 
 
 
-            <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>主营业务：</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="mainbusiness" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="300"></asp:TextBox></div></div>
+            <div style="margin-top:10px;float:left;width:100%;height:170px;"><div style="width:240px;text-align:right;float:left;display:inline;"><p>主营业务：</p></div>
+            <div style="width:280px;display:inline;height:170px;"><asp:TextBox ID="mainbusiness" runat="server" style="margin-left:20px; width :240px;height:168px; display:inline;"  MaxLength="150" TextMode="MultiLine"></asp:TextBox></div></div>
 
             <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>微信号：</p></div>
             <div style="width:280px;display:inline;"><asp:TextBox ID="wechat" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="20"></asp:TextBox></div></div>
 
              <div style="margin-top:10px;float:left;width:100%"><div style="width:240px;text-align:right;float:left;display:inline;"><p>联系电话：</p></div>
-            <div style="width:280px;display:inline;"><asp:TextBox ID="telephone" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="11"></asp:TextBox></div></div>
+            <div style="width:280px;display:inline;"><asp:TextBox ID="telephone" runat="server" style="margin-left:20px; width :240px;display:inline;"  MaxLength="11" TextMode="Phone"></asp:TextBox></div></div>
 
              <div style="margin-top:10px;float:left;width:100%">
              <asp:Button ID="save" runat="server" Text="保存" OnClick="save_Click" /> <asp:Button ID="cancel" runat="server" Text="取消" OnClick="cancel_Click" /></div>
