@@ -108,9 +108,9 @@
                         <tr>
                             <td class="auto-style22">
                                 <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="*"></asp:Label>
-                                主办方名称：</td>
+                                公司名称：</td>
                             <td class="auto-style23">
-                                &nbsp;<asp:DropDownList ID="bind_Province" CssClass="styled" runat="server" AutoPostBack="True" onselectedindexchanged="bind_Province_SelectedIndexChanged" Height="24px" Width="77px"> 
+                                <asp:DropDownList ID="bind_Province" CssClass="styled" runat="server" AutoPostBack="True" onselectedindexchanged="bind_Province_SelectedIndexChanged" Height="24px" Width="77px"> 
                                 </asp:DropDownList>&nbsp;省 <asp:DropDownList ID="bind_City" CssClass="styled" runat="server" AutoPostBack="True" onselectedindexchanged="bind_City_SelectedIndexChanged" Height="24px" Width="84px">
                                 </asp:DropDownList>&nbsp;市 <asp:DropDownList ID="Bind_Area" CssClass="styled" runat="server" Height="24px" Width="83px" AutoPostBack="True">
                                 </asp:DropDownList>&nbsp;区
@@ -119,7 +119,16 @@
                       <tr>
                             <td class="auto-style13">&nbsp;</td>
                             <td>
-                                <asp:TextBox ID="managername" runat="server" Height="20px" Width="222px" Placeholder="公司/社会团体/学生社团名称等"></asp:TextBox>
+                                <asp:TextBox ID="companyname" runat="server" Height="20px" Width="222px" Placeholder="公司/社会团体/学生社团名称等"></asp:TextBox>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="auto-style13">
+                                  <asp:Label ID="Label5" runat="server" ForeColor="Red" Text="*"></asp:Label>
+                                负责人姓名：
+                            </td>
+                            <td>
+                                <asp:TextBox ID="managername" runat="server" Height="20px" Width="222px" ></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -153,7 +162,7 @@
                                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 联系电话：</td>
                             <td class="auto-style17">
-                                <asp:TextBox ID="telephone" runat="server" Height="20px" Width="222px" ></asp:TextBox>
+                                <asp:TextBox ID="telephone" runat="server" Height="20px" Width="222px" OnTextChanged="telephone_TextChanged" TextMode="Number" ></asp:TextBox>
                             </td>
                         </tr>
                         <tr>

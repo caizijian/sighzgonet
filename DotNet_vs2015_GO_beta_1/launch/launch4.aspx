@@ -66,6 +66,14 @@
             width: 413px;
             height: 31px;
         }
+        .auto-style20 {
+            width: 413px;
+            height: 34px;
+        }
+        .auto-style21 {
+            width: 413px;
+            height: 75px;
+        }
     </style>
 </head>
 <body>
@@ -85,16 +93,23 @@
                    
                     <table class="auto-style14">
                         <tr>
-                            <td class="auto-style17">&nbsp;&nbsp;温馨提示：此页所编辑信息将在赛事资讯页面上提示，请自行编辑好文本格式，注意标题与分段</td>                           
+                            <td class="auto-style21">
+                                <asp:TextBox ID="TextBox1" runat="server" Height="37px" Width="391px" placeholder="标题"></asp:TextBox>
+                            </td>                           
+                        </tr>
+                        <tr>
+                            <td class="auto-style20">&nbsp;&nbsp;温馨提示：此页所编辑信息将在赛事资讯页面上提示，请自行编辑好文本格式，注意标题与分段</td>                           
                         </tr>
                         <tr>
                             <td class="auto-style18">
-                                <asp:TextBox ID="content" runat="server" Font-Bold="True"  Height="206px" Width="521px"  Placeholder="公司/社会团体/学生社团名称等">    </asp:TextBox>
+                                <asp:TextBox ID="content" runat="server" Font-Bold="True"  Height="206px" Width="521px"  Placeholder="公司/社会团体/学生社团名称等" TextMode="MultiLine" OnTextChanged="content_TextChanged"></asp:TextBox>
                             </td>                        
                         </tr>
                          <tr>
                             <td class="auto-style19">
-                                <asp:FileUpload ID="FileUpload1" runat="server" Width="168px" Height="23px"  />
+                                <asp:FileUpload ID="FileUpload" runat="server" Width="70px" Height="25px"  />
+                             &nbsp;&nbsp;
+                                <asp:Button ID="Button2" runat="server" Font-Bold="False" Font-Size="Medium" Height="25px" OnClick="Button2_Click" Text="上传" />
                              </td>                        
                         </tr>
                         <tr>

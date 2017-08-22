@@ -85,6 +85,7 @@
         }
 
     </style>
+     <script type="text/JavaScript" src="My97DatePicker/WdatePicker.js"></script> 
 </head>
 <body>
     <form id="form1" runat="server">
@@ -114,13 +115,13 @@
                                 <asp:Label ID="Label2" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 赛事级别：</td>
                             <td class="auto-style23">
-                                <asp:DropDownList ID="level_id" runat="server" Height="20px" Width="73px">
+                                <asp:DropDownList ID="level_id" runat="server" Height="20px" Width="73px" OnSelectedIndexChanged="level_id_SelectedIndexChanged">
                                     <asp:ListItem>请选择</asp:ListItem>
-                                    <asp:ListItem Value="1">1</asp:ListItem>
-                                    <asp:ListItem Value="2">2</asp:ListItem>
-                                    <asp:ListItem Value="3">3</asp:ListItem>
-                                    <asp:ListItem Value="4">4</asp:ListItem>
-                                    <asp:ListItem Value="5">5</asp:ListItem>
+                                    <asp:ListItem Value="1">国家级</asp:ListItem>
+                                    <asp:ListItem Value="2">省级</asp:ListItem>
+                                    <asp:ListItem Value="3">市级</asp:ListItem>
+                                    <asp:ListItem Value="4">校级</asp:ListItem>
+                                    <asp:ListItem Value="5">自由</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                         </tr>
@@ -129,9 +130,9 @@
                                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 赛事形式：</td>
                             <td class="auto-style17">
-                                &nbsp;&nbsp; 每组 
-                                <asp:TextBox ID="minmember" runat="server" OnTextChanged="minmember_TextChanged" Width="20px"></asp:TextBox>
-                                -<asp:TextBox ID="maxmember" runat="server" Width="21px"></asp:TextBox>
+                                &nbsp; 每组 
+                                <asp:TextBox ID="minmember" runat="server" OnTextChanged="minmember_TextChanged" Width="34px" onkeypress="if (event.keyCode < 48 || event.keyCode >57) event.returnValue = false;" Height="20px" TextMode="Number"></asp:TextBox>
+                                &nbsp;— <asp:TextBox ID="maxmember" runat="server" Width="32px" onkeypress="if (event.keyCode < 48 || event.keyCode >57) event.returnValue = false;" Height="20px" OnTextChanged="maxmember_TextChanged" TextMode="Number"></asp:TextBox>
 &nbsp;人</td>
                         </tr>
                         <tr>
@@ -139,7 +140,7 @@
                                 <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 赛事类型：</td>
                             <td class="auto-style21">
-                                <asp:DropDownList ID="type_id" runat="server" Height="20px" Width="73px">
+                                <asp:DropDownList ID="type_id" runat="server" Height="36px" Width="73px">
                                     <asp:ListItem>请选择</asp:ListItem>
                                     <asp:ListItem>1</asp:ListItem>
                                     <asp:ListItem>2</asp:ListItem>
@@ -154,9 +155,9 @@
                                 <asp:Label ID="Label5" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 报名起止时间：</td>
                             <td>
-                                <asp:TextBox ID="signupstarttime" runat="server" Height="19px" Width="143px" placeholder="yyyy/mm/dd-hh:mm:ss" OnTextChanged="signupstarttime_TextChanged"></asp:TextBox>
+                                <asp:TextBox ID="signupstarttime" runat="server" Height="19px" Width="143px" placeholder="yyyy/mm/dd-hh:mm" onfocus="WdatePicker({dateFmt:'yyyy/MM/dd HH:mm'})"></asp:TextBox>
                             &nbsp;
-                                <asp:TextBox ID="ddl" runat="server" Height="19px" Width="143px" placeholder="yyyy/mm/dd-hh:mm:ss"></asp:TextBox>
+                                <asp:TextBox ID="ddl" runat="server" Height="19px" Width="143px" placeholder="yyyy/mm/dd-hh:mm" onfocus="WdatePicker({dateFmt:'yyyy/MM/dd HH:mm'})"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -164,9 +165,9 @@
                                 <asp:Label ID="Label6" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 比赛起止时间：</td>
                             <td>
-                                <asp:TextBox ID="starttime" runat="server" Height="19px" Width="143px" placeholder="yyyy/mm/dd-hh:mm:ss" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
+                                <asp:TextBox ID="starttime" runat="server" Height="19px" Width="143px" placeholder="yyyy/mm/dd-hh:mm" OnTextChanged="TextBox5_TextChanged" onfocus="WdatePicker({dateFmt:'yyyy/MM/dd HH:mm'})"></asp:TextBox>
                             &nbsp;
-                                <asp:TextBox ID="endtime" runat="server" Height="19px" Width="143px" placeholder="yyyy/mm/dd-hh:mm:ss" OnTextChanged="TextBox6_TextChanged" ></asp:TextBox>
+                                <asp:TextBox ID="endtime" runat="server" Height="19px" Width="143px" placeholder="yyyy/mm/dd-hh:mm:ss" OnTextChanged="TextBox6_TextChanged" onfocus="WdatePicker({dateFmt:'yyyy/MM/dd HH:mm'})"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -174,8 +175,10 @@
                                 <asp:Label ID="Label7" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 最高奖金：</td>
                             <td>
-                                <asp:TextBox ID="maxbouns" runat="server" Height="19px" Width="100px" placeholder="格式如10000" OnTextChanged="bouns_TextChanged"></asp:TextBox>
-&nbsp;元</td>
+                                <asp:TextBox ID="maxbouns" runat="server" Height="19px" Width="100px" placeholder="格式如10000" OnTextChanged="bouns_TextChanged" MaxLength="8"  TextMode="Number"></asp:TextBox>
+&nbsp;元&nbsp;&nbsp; 
+                           
+                            </td>
                         </tr>
                         <tr>
                             <td class="auto-style13">&nbsp;</td>

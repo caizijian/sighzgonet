@@ -12,6 +12,7 @@ using System.Drawing;
 using System.IO;
 using System.Security.Cryptography;
 using System.Web.Security;
+using System.Text.RegularExpressions;
 
 namespace WebApplication1
 {
@@ -151,10 +152,24 @@ namespace WebApplication1
             return isimage;
         }
 
-        protected bool check(string managername, string telephone ,string email)
+        protected bool check(string companyname, string managername, string telephone, string email)
         {
-      
+            if (Regex.IsMatch(companyname, @"[^0-9a-zA-Z\u4e00-\u9fa5]"))
+            {
+                Response.Write("<script>alert('公司名称不符合格式')</script>");
+                return false;
+            }
+            if (Regex.IsMatch(managername, @"[^0-9a-zA-Z\u4e00-\u9fa5]"))
+            {
+                Response.Write("<script>alert('负责人名称不符合格式')</script>");
+                return false;
+            }
             if (managername == "")
+            {
+                Response.Write("<script>alert('负责人不能为空')</script>");
+                return false;
+            }
+            if (companyname == "")
             {
                 Response.Write("<script>alert('公司名不能为空')</script>");
                 return false;
@@ -173,18 +188,22 @@ namespace WebApplication1
         }
         protected void Button1_Click(object sender, System.EventArgs e)
         {
-            if (check(managername.Text, telephone.Text,email.Text))
+            if (check(companyname.Text, managername.Text,telephone.Text,email.Text))
             {
                 //  string str = "Server=localhost;User ID=root;Password=1548936563ry?;Database=launch;CharSet=utf8;";
                 string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
                 MySqlConnection con = new MySqlConnection(str);//实例化链接
                 con.Open();   //开启连接   
-                // string strcmd = "insert into host (id,managername,telephone,wechat)values (?id,?managername,?telephone,?wechat)";
-                string strcmd = "update host set managername=?managername,telephone=?telephone,wechat=?wechat where id=?id";
+                string strcmd = "update host set companyname=?companyname,managername=?managername,telephone=?telephone,email=?email,wechat=?wechat,province=?province,city=?city,district=?district where id=?id";
                 MySqlCommand cmd = new MySqlCommand(strcmd, con);
                 cmd.Parameters.AddWithValue("?managername", managername.Text);
                 cmd.Parameters.AddWithValue("?telephone", telephone.Text);
-                 cmd.Parameters.AddWithValue("?wechat", wechat.Text);
+                cmd.Parameters.AddWithValue("?wechat", wechat.Text);
+                cmd.Parameters.AddWithValue("?companyname", companyname.Text);
+                cmd.Parameters.AddWithValue("?province", bind_Province.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("?city", bind_City.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("?district", Bind_Area.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("?email", email.Text);
                 cmd.Parameters.AddWithValue("?id", Session["uid"]);
               //  cmd.Parameters.AddWithValue("?id", 1);
                 int i = cmd.ExecuteNonQuery();
@@ -221,6 +240,11 @@ namespace WebApplication1
         protected void bind_City_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindArea(bind_City.SelectedItem.Value);
+        }
+
+        protected void telephone_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
     }
