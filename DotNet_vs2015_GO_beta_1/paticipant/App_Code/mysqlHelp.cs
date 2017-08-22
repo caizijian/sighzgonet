@@ -15,7 +15,7 @@ public class mysqlHelp
     }
 
     private static void PrepareCommand(MySqlCommand cmd, MySqlConnection conn, MySqlTransaction trans,  string cmdText, MySqlParameter[] cmdParms)
-    {
+    {//参数化
         if (conn.State != ConnectionState.Open)
             conn.Open();
 
@@ -37,10 +37,10 @@ public class mysqlHelp
 
     
 
-    //无需插入参数；增删改；返回影响行数
+    
     public static int ExecuteNonQuery(string SQLString)
-    {
-        using (MySqlConnection connection = new MySqlConnection("Server=172.20.10.12;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
+    {//无需插入参数；增删改；返回影响行数
+        using (MySqlConnection connection = new MySqlConnection("Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
         {
             using (MySqlCommand cmd = new MySqlCommand(SQLString, connection))
             {
@@ -60,10 +60,10 @@ public class mysqlHelp
     }
 
 
-    //需要插入参数；增删改；返回影响行数
+    
     public static int ExecuteNonQuery(string SQLString, params MySqlParameter[] cmdParms)
-    {
-        using (MySqlConnection connection = new MySqlConnection("Server=172.20.10.12;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
+    {//需要插入参数；增删改；返回影响行数
+        using (MySqlConnection connection = new MySqlConnection("Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -85,10 +85,10 @@ public class mysqlHelp
 
 
 
-    //查询第一行第一例，聚集函数
+  
     public static object ExecuteScalar(string SQLString)
-    {
-        using (MySqlConnection connection = new MySqlConnection("Server=172.20.10.12;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
+    {//查询，返回第一行第一例
+        using (MySqlConnection connection = new MySqlConnection("Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
         {
             using (MySqlCommand cmd = new MySqlCommand(SQLString, connection))
             {
@@ -117,7 +117,7 @@ public class mysqlHelp
 
     public static object ExecuteScalar(string SQLString, params MySqlParameter[] cmdParms)
     {
-        using (MySqlConnection connection = new MySqlConnection("Server=172.20.10.12;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
+        using (MySqlConnection connection = new MySqlConnection("Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -147,8 +147,8 @@ public class mysqlHelp
 
 
     public static MySqlDataReader ExecuteReader(string strSQL)
-    {
-        MySqlConnection connection = new MySqlConnection("Server=172.20.10.12;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;");
+    {//查询，返回第一行
+        MySqlConnection connection = new MySqlConnection("Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;");
         MySqlCommand cmd = new MySqlCommand(strSQL, connection);
         MySqlDataReader myReader = null;
         try
@@ -169,7 +169,7 @@ public class mysqlHelp
     }
     public static MySqlDataReader ExecuteReader(string SQLString, params MySqlParameter[] cmdParms)
     {
-        MySqlConnection connection = new MySqlConnection("Server=172.20.10.12;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;");
+        MySqlConnection connection = new MySqlConnection("Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;");
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataReader myReader = null;
       
@@ -193,8 +193,8 @@ public class mysqlHelp
     }
 
     public static DataTable ExecuteDataTable(string SQLString)
-    {
-        using (MySqlConnection connection = new MySqlConnection("Server=172.20.10.12;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
+    {//查询，返回一个表
+        using (MySqlConnection connection = new MySqlConnection("Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
         {
             DataSet ds = new DataSet();
             try
@@ -215,7 +215,7 @@ public class mysqlHelp
 
     public static DataTable ExecuteDataTable(string SQLString, params MySqlParameter[] cmdParms)
     {
-        using (MySqlConnection connection = new MySqlConnection("Server=172.20.10.12;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
+        using (MySqlConnection connection = new MySqlConnection("Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;"))
         {
             MySqlCommand cmd = new MySqlCommand();
             PrepareCommand(cmd, connection, null, SQLString, cmdParms);

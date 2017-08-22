@@ -9,9 +9,9 @@ using System.Web.UI.WebControls;
 namespace DotNet_vs2015_GO_beta_1.WebSite
 {
     public partial class Jion_single : System.Web.UI.Page
-    {
+    {//个人参赛
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {//初始化页面时，展示已填的个人信息
            /* if (Session["uid"] == null)
             {
                 Response.Redirect("../system/login.aspx", false);
@@ -55,7 +55,7 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
 
 
         protected void sure_Click(object sender, EventArgs e)
-        {
+        {//更新个人信息并参加比赛
             string Realname = name.Text;
             string Province = province.Text;
             string City = city.Text;
