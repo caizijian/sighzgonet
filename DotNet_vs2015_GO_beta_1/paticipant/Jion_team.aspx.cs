@@ -80,6 +80,26 @@ namespace DotNet_vs2015_GO_beta_1
             string Teaminfo = teaminfo.Text;
             string Teachername = teachername.Text;
             string Teacherinfo = teacherinfo.Text;
+            if (Teamname == null || Teamname == "")
+            {
+                Response.Write("<script>alert('请完善报名信息')</script>");
+                return;
+            }
+            if (Teaminfo == null || Teaminfo == "")
+            {
+                Response.Write("<script>alert('请完善报名信息')</script>");
+                return;
+            }
+            if (Teachername == null || Teachername == "")
+            {
+                Response.Write("<script>alert('请完善报名信息')</script>");
+                return;
+            }
+            if (Teacherinfo == null || Teacherinfo == "")
+            {
+                Response.Write("<script>alert('请完善报名信息')</script>");
+                return;
+            }
             global.UpdateTeam(team_id, Teamname, Teaminfo, Teachername, Teacherinfo);
 
         }

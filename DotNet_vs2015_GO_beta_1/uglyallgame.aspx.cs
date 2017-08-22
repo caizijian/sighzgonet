@@ -12,7 +12,8 @@ namespace DotNet_vs2015_GO_beta_1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            showallcompetition();
+            if (!IsPostBack) { showallcompetition(); }
+            
         }
 
         protected void showallcompetition()
@@ -31,11 +32,12 @@ namespace DotNet_vs2015_GO_beta_1
                 CheckBox cbox = (CheckBox)GridView1.Rows[i].FindControl("CheckBox1");
                 if (cbox.Checked == true)
                 {
-                    Session["competition_id"] = GridView1.DataKeys[i].Value;
-
+                    Session["competition_id"] = (string)GridView1.DataKeys[i].Value;
+                    break;
                 }
             }
-            Response.Write("<script>alert('选择成功')</script>");
+            //string test = Session["competition_id"].ToString();
+          //  Response.Write("<script>alert('选择成功')</script>");
             Response.Redirect("~/detail/Game_details.aspx");
         }
     }

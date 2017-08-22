@@ -14,8 +14,8 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
         {//初始化页面时，展示已填的个人信息
             if (Session["uid"] == null)
             {
-                Response.Redirect("../system/login.aspx", false);
-                return;
+                Response.Redirect("../system/login.aspx");
+              
             }
 
                 if (!IsPostBack)
@@ -49,7 +49,9 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
                     if (reader.IsDBNull(11)) sex.Text = "";
                     else sex.Text = reader.GetString(11); 
                 }
-                else Server.Transfer("test.aspx");
+                //  Response.Redirect("../system/Home.html");
+                //  Response.Write("<script>alert('你是主办方不是参赛者嘻嘻')</script>");
+                Response.Write("<script>alert('你是主办方不是参赛者嘻嘻');location.href='../system/Home.html';</script>");
             }
         }
 
