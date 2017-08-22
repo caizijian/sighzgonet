@@ -22,6 +22,15 @@ namespace edit {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// head 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image head;
+        
+        /// <summary>
         /// changehead 控件。
         /// </summary>
         /// <remarks>
@@ -58,22 +67,22 @@ namespace edit {
         protected global::System.Web.UI.WebControls.TextBox companyname;
         
         /// <summary>
-        /// TextBox9 控件。
+        /// update 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.Button update;
         
         /// <summary>
-        /// TextBox10 控件。
+        /// FileUpload2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
         
         /// <summary>
         /// mainbusiness 控件。
