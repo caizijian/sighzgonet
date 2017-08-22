@@ -25,7 +25,7 @@ namespace SightzGo
             {
                 Label1.Text = reader.GetString(1);
                 Label2.Text = reader.GetString(4);
-                Label3.Text = reader.GetDateTime(8)+"~"+reader.GetDateTime(9);
+                Label3.Text = reader.GetDateTime(8)+"<br />~"+reader.GetDateTime(9);
                 Label4.Text = reader.GetString(12);
 
                 //计算报名截止剩余天数，无需传参
@@ -35,21 +35,20 @@ namespace SightzGo
                     DateTime ddl = reader.GetDateTime(8);
                     DateTime dt = DateTime.Now;
                     System.TimeSpan time = ddl - dt;
-                    string timeStr = time.TotalDays.ToString();
-                    string res = Math.Floor(Convert.ToDouble(timeStr)).ToString();
-                    Label5.Text = res;
+                    string timeStr_tran = time.TotalDays.ToString();
+                    string timeStr = Math.Floor(Convert.ToDouble(timeStr_tran)).ToString();
+                    Label5.Text = timeStr;
                 }                
-                Label6.Text = "445549fdnhvsfdsfeaqivhregujdasvbfgnhjcdzsxvcbgkmckzAyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyydddddddddddddddddddhhhhhhhhhhhhhhhhhhhsssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddddddwwwwwwwwwwwwwi";
+                Label6.Text = reader.GetString(4);
             }
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //该函数实现什么计算，提交什么数据
-            //使用时候需要注意什么问题
-            //如果传入参数存在什么问题，会导致什么问题
-            // ccdf
+            //判断用户是否登录，读取session
+            //如果session["uid"]为空，跳转到登陆页面
+            //LG 289855991@qq.com 2017/08/19
             if (Session["uid"] == null)
             {
                 Response.Redirect("../system/login.aspx");

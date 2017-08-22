@@ -1,5 +1,4 @@
-﻿
-body {
+﻿body {
     margin:0;
     padding:0;
     background-color:#002D54;
@@ -57,6 +56,10 @@ h2.title {
     display: block;
     float: left;
     margin:0 10px;
+}
+#Label5{
+    font-size:30px;
+    color:red;
 }
 #Label6{
     display:block;
