@@ -47,6 +47,7 @@
                         <ContentTemplate>
                             请输入用户名呵呵
                             <asp:TextBox ID="membername" runat="server"></asp:TextBox><asp:Button ID="find" runat="server" Text="查找" OnClick="find_Click" />
+                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
                                 <Columns>
                                     <asp:TemplateField HeaderText="选择">

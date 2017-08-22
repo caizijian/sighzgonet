@@ -237,16 +237,24 @@ public class global{
 
 
     }
-         
+
+
+    public static int isTeamnameExist(string competition_id,string teamname)
+    {//显示参赛者信息    
+        string sql = "SELECT * FROM competition,team,takepartin WHERE competition.id=takepartin.competition_id AND team.id=takepartin.team_id AND teamname=?teamname AND competition.id=?competition.id";
+        MySqlParameter[] p ={
+         new MySqlParameter("?competition.id",competition_id),
+          new MySqlParameter("?teamname",teamname)
+        };
+        if (mysqlHelp.ExecuteScalar(sql, p) == null) return 0;
+        return 1;
+    }
+
+
+
 
 
 }
-
-
-
-
-
-
 
 
 

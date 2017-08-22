@@ -25,6 +25,8 @@ namespace DotNet_vs2015_GO_beta_1
         {//通过用户真实姓名寻找队友
             string Username = membername.Text;
             DataTable table = global.FindParticipant(Username);
+            if (table.Rows.Count == 0) {
+                Label1.Text="该成员不存在";return; }
             GridView1.DataSource = table;
             GridView1.DataKeyNames = new string[] { "id" };
             GridView1.DataBind();
@@ -69,12 +71,9 @@ namespace DotNet_vs2015_GO_beta_1
         protected void joincompetition_Click(object sender, EventArgs e)
         {//组队参赛
             string team_id = Session["team_id"].ToString();
-            string competition_id = Session["competition_id"].ToString();
-            //string competition_id = "7b4007f0412d43e7";
+            //string competition_id = Session["competition_id"].ToString();
+            string competition_id = "7b4007f0412d43e7";
 
-            int success = global.JoinCompetition(competition_id, team_id);
-            if (success == -1) { Response.Write("<script>alert('未能成功参赛')</script>"); }
-            else { Response.Write("<script>alert('成功参赛')</script>"); }
 
             string Teamname = teamname.Text;
             string Teaminfo = teaminfo.Text;
@@ -100,8 +99,20 @@ namespace DotNet_vs2015_GO_beta_1
                 Response.Write("<script>alert('请完善报名信息')</script>");
                 return;
             }
+
+            if (global.isTeamnameExist(competition_id, Teamname) == 1)
+            {
+                Response.Write("<script>alert('该队名已存在')</script>");
+                return; }
+
+
             global.UpdateTeam(team_id, Teamname, Teaminfo, Teachername, Teacherinfo);
 
+
+            int success = global.JoinCompetition(competition_id, team_id);
+            if (success == -1) { Response.Write("<script>alert('未能成功参赛')</script>"); }
+          
+             else { Response.Write("<script>alert('成功参赛');location.href='../detail/Game_details.aspx';</script>"); }
         }
 
 

@@ -20,38 +20,38 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
 
                 if (!IsPostBack)
             {
-                int participant_id = Convert.ToInt32(Session["uid"]);
+                //int participant_id = Convert.ToInt32(Session["uid"]);
                 //String competiton_id = Session["competiton_id"].ToString();
-                //int participant_id = 136;
+                int participant_id = 154;
                 MySqlDataReader reader = global.ParticipantInfo(participant_id);
                 if (reader.Read())
                 {
                     if (reader.IsDBNull(1)) name.Text = "";
-                    else     name.Text = reader.GetString(1);
+                    else name.Text = reader.GetString(1);
                     if (reader.IsDBNull(2)) province.Text = "";
-                    else province.Text = reader.GetString(2); 
+                    else province.Text = reader.GetString(2);
                     if (reader.IsDBNull(3)) city.Text = "";
-                    else city.Text = reader.GetString(3); 
+                    else city.Text = reader.GetString(3);
                     if (reader.IsDBNull(4)) school.Text = "";
                     else school.Text = reader.GetString(4);
                     if (reader.IsDBNull(5)) major.Text = "";
-                    else major.Text = reader.GetString(5); 
-                    if (reader.IsDBNull(6))grade.Text = "";
-                    else grade.Text = reader.GetString(6); 
+                    else major.Text = reader.GetString(5);
+                    if (reader.IsDBNull(6)) grade.Text = "";
+                    else grade.Text = reader.GetString(6);
                     if (reader.IsDBNull(7)) number.Text = "";
-                    else number.Text = reader.GetString(7); 
-                    if (reader.IsDBNull(8))email.Text = "";
-                    else email.Text = reader.GetString(8); 
-                    if (reader.IsDBNull(9))telephone.Text = "";
-                    else  telephone.Text = reader.GetString(9); 
+                    else number.Text = reader.GetString(7);
+                    if (reader.IsDBNull(8)) email.Text = "";
+                    else email.Text = reader.GetString(8);
+                    if (reader.IsDBNull(9)) telephone.Text = "";
+                    else telephone.Text = reader.GetString(9);
                     if (reader.IsDBNull(10)) wechat.Text = "";
                     else wechat.Text = reader.GetString(10);
                     if (reader.IsDBNull(11)) sex.Text = "";
-                    else sex.Text = reader.GetString(11); 
+                    else sex.Text = reader.GetString(11);
                 }
                 //  Response.Redirect("../system/Home.html");
                 //  Response.Write("<script>alert('你是主办方不是参赛者嘻嘻')</script>");
-                else Response.Write("<script>alert('你是主办方不是参赛者嘻嘻');location.href='../system/Home.html';</script>");
+                else { Response.Write("<script>alert('你是主办方不是参赛者嘻嘻');location.href='../system/Home.html';</script>"); }
             }
         }
 
@@ -140,8 +140,9 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
             }
             int participant_id = Convert.ToInt32(Session["uid"]);
             //String competiton_id = Session["competiton_id"].ToString();
-           // int participant_id = 136;
-            int success=global.Join(participant_id, Realname, Province, City, School, Major, Grade, Number, Email, Telephone, Wechat, Sex, Teachername, Teacherinfo, "099c182ed2f041afb73a7c1145d3d789");
+            string competiton_id = "099c182ed2f041afb73a7c1145d3d789";
+            // int participant_id = 154;
+            int success=global.Join(participant_id, Realname, Province, City, School, Major, Grade, Number, Email, Telephone, Wechat, Sex, Teachername, Teacherinfo, competiton_id);
             if(success==1)
             {
                 Response.Write("<script>alert('报名成功')</script>");
