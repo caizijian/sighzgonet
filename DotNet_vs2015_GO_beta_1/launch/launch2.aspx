@@ -162,7 +162,7 @@
                                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 联系电话：</td>
                             <td class="auto-style17">
-                                <asp:TextBox ID="telephone" runat="server" Height="20px" Width="222px" OnTextChanged="telephone_TextChanged" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="telephone" runat="server" Height="20px" Width="222px" OnTextChanged="telephone_TextChanged" TextMode="Phone" MaxLength="11" ></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -170,7 +170,7 @@
                                 <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 邮箱：</td>
                             <td class="auto-style19">
-                                <asp:TextBox ID="email" runat="server" Height="20px" Width="222px" OnTextChanged="email_TextChanged" ></asp:TextBox>
+                                <asp:TextBox ID="email" runat="server" Height="20px" Width="222px" OnTextChanged="email_TextChanged" TextMode="Email" ></asp:TextBox>
                             </td>
                         </tr>
                         <tr>

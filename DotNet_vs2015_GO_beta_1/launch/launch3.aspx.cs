@@ -40,7 +40,7 @@ namespace WebApplication1
                 Response.Write("<script>alert('赛事名称不符合格式')</script>");
                 return false;
             }
-            if (min>max||min<=2)      
+            if (min<2||max<2)      
             {
                 Response.Write("<script>alert('团队人数不符合格式')</script>");
                 return false;

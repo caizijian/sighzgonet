@@ -114,18 +114,21 @@ namespace WebApplication1
                     {
                         pic.ImageUrl = "";
                         lbl_pic.Text = "文件大小超出8M！请重新选择！";
+                        return;
                     }
                 }
                 else
                 {
                     pic.ImageUrl = "";
                     lbl_pic.Text = "要上传的文件类型不对！请重新选择！";
+                    return;
                 }
             }
             else
             {
                 pic.ImageUrl = "";
                 lbl_pic.Text = "请选择要上传的图片！";
+                return;
             }
         }
 
