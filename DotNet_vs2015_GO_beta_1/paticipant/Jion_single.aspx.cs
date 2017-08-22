@@ -12,17 +12,17 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
     {//个人参赛
         protected void Page_Load(object sender, EventArgs e)
         {//初始化页面时，展示已填的个人信息
-           /* if (Session["uid"] == null)
+            if (Session["uid"] == null)
             {
                 Response.Redirect("../system/login.aspx", false);
                 return;
-            }*/
+            }
 
                 if (!IsPostBack)
             {
-                // int participant_id = Convert.ToInt32(Session["uid"]);
+                int participant_id = Convert.ToInt32(Session["uid"]);
                 //String competiton_id = Session["competiton_id"].ToString();
-                int participant_id = 136;
+                //int participant_id = 136;
                 MySqlDataReader reader = global.ParticipantInfo(participant_id);
                 if (reader.Read())
                 {
@@ -136,9 +136,9 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
                 Response.Write("<script>alert('请完善报名信息')</script>");
                 return;
             }
-            //int participant_id = Convert.ToInt32(Session["participant_id"]);
+            int participant_id = Convert.ToInt32(Session["participant_id"]);
             //String competiton_id = Session["competiton_id"].ToString();
-            int participant_id = 136;
+           // int participant_id = 136;
             int success=global.Join(participant_id, Realname, Province, City, School, Major, Grade, Number, Email, Telephone, Wechat, Sex, Teachername, Teacherinfo, "099c182ed2f041afb73a7c1145d3d789");
             if(success==1)
             {

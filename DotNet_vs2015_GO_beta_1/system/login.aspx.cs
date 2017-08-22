@@ -42,7 +42,7 @@ namespace login
             Session["uid"] = id;
 
             Response.Write("<script>alert('登录成功！')</script>");
-            Server.Transfer("Home.html");
+            Response.Redirect("Home.html");
             /* if(check(username.Text, password.Text))
              {
              string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";

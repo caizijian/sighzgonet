@@ -177,19 +177,19 @@ public class mysqlHelp
             myReader = cmd.ExecuteReader();
             cmd.Parameters.Clear();
             return myReader;
-        
-       /* catch (MySqlException e)
-        {
-            throw e;
-        }
-        finally
-        {
-            
-            myReader.Close();
-            cmd.Dispose();
-            connection.Close();
 
-        }*/
+        /* catch (MySqlException e)
+         {
+             throw e;
+         }
+         finally
+         {
+              //return myReader;
+             myReader.Close();
+             cmd.Dispose();
+             connection.Close();
+
+         }*/
     }
 
     public static DataTable ExecuteDataTable(string SQLString)

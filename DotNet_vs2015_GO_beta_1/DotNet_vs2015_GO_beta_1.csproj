@@ -72,16 +72,27 @@
   <ItemGroup>
     <Content Include="css\detail.css" />
     <Content Include="css\gameall.css" />
+    <Content Include="css\head&amp;foot.css" />
+    <Content Include="css\Home.css" />
     <Content Include="detail\Game_details.aspx" />
     <Content Include="gameall\gameall.aspx" />
+    <Content Include="images\Game_poster\poster1.png" />
+    <Content Include="images\Game_poster\poster2.png" />
+    <Content Include="images\Game_poster\poster3.png" />
     <Content Include="images\launch.jpg" />
+    <Content Include="images\lefticon.png" />
     <Content Include="images\ok.jpg" />
+    <Content Include="images\righticon.png" />
+    <Content Include="js\jquery-1.11.0.min.js" />
+    <Content Include="js\jquery-migrate-1.4.1.js" />
+    <Content Include="js\jquery-yys-slider.js" />
     <Content Include="launch\launch1.aspx" />
     <Content Include="launch\launch2.aspx" />
     <Content Include="launch\launch3.aspx" />
     <Content Include="launch\launch4.aspx" />
     <Content Include="launch\launch5.aspx" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -96,11 +107,14 @@
     <Content Include="images\me.png" />
     <Content Include="images\search.jpg" />
     <Content Include="paticipant\Jion_single.aspx" />
+    <Content Include="paticipant\Jion_team.aspx" />
     <Content Include="paticipant\test.aspx" />
     <Content Include="system\edit.aspx" />
+    <Content Include="system\Home.html" />
     <Content Include="system\login.aspx" />
     <Content Include="system\readonly.aspx" />
     <Content Include="system\signup.aspx" />
+    <Content Include="uglyallgame.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +176,13 @@
     <Compile Include="paticipant\Jion_single.aspx.designer.cs">
       <DependentUpon>Jion_single.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paticipant\Jion_team.aspx.cs">
+      <DependentUpon>Jion_team.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paticipant\Jion_team.aspx.designer.cs">
+      <DependentUpon>Jion_team.aspx</DependentUpon>
+    </Compile>
     <Compile Include="paticipant\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +219,13 @@
     </Compile>
     <Compile Include="system\signup.aspx.designer.cs">
       <DependentUpon>signup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="uglyallgame.aspx.cs">
+      <DependentUpon>uglyallgame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uglyallgame.aspx.designer.cs">
+      <DependentUpon>uglyallgame.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

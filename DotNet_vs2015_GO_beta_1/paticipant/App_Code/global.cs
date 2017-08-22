@@ -221,6 +221,14 @@ public class global{
        return(mysqlHelp.ExecuteNonQuery(sql, p)) ;
     }
 
+    public static DataTable ShowAllCompetition()
+    {
+        string sql = "select * from competition";
+        return(mysqlHelp.ExecuteDataTable(sql));
+
+
+    }
+         
 
 
 }
