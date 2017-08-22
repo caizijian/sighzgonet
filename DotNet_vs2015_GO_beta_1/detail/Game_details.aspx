@@ -20,6 +20,18 @@
             position: relative;
             left: 8px;
         }
+        .auto-style4 {
+            text-align: left;
+            padding:0 20px;
+        }
+        .auto-style5 {
+            height: 44px;
+        }
+        .auto-style6 {
+            text-align: right;
+            padding:0 20px;
+            font-size:14px;
+        }
     </style>
 </head>
 <body>
@@ -47,28 +59,30 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td draggable="true" class="text">
+            <td draggable="true" class="auto-style4">
                 比赛名称：<asp:Label ID="Label1" runat="server" Text="比赛名称"></asp:Label>
                 </td>
         </tr>
         <tr>
-            <td draggable="true" class="text">
+            <td draggable="true" class="auto-style4">
                 主办单位：<asp:Label ID="Label2" runat="server" Text="主办单位"></asp:Label>
                 </td>
         </tr>
         <tr>
-            <td draggable="true" class="text">
+            <td draggable="true" class="auto-style4">
                 比赛时间：<asp:Label ID="Label3" runat="server" Text="比赛时间"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td draggable="true" class="text">
+            <td draggable="true" class="auto-style4">
                 最高奖金：<asp:Label ID="Label4" runat="server" Text="最高奖金"></asp:Label>
                 </td>
         </tr>
         <tr>
-            <td draggable="true" class="text">
-                距离报名截止还有<asp:Label ID="Label5" runat="server" Text="X"></asp:Label>&nbsp;天</td>
+            <td draggable="true" class="auto-style4">
+                <span id="ddl_left" runat ="server">距离报名截止还有&nbsp;</span>
+                <asp:Label ID="Label5" runat="server" Text="X"></asp:Label>
+                <span id="ddl_right" runat ="server">&nbsp;天</span></td>
         </tr>
         <tr>
             <td draggable="true" class="text">
@@ -88,8 +102,34 @@
             </td>
         </tr>
         <tr>
-            <td draggable="true">
-                &nbsp;</td>
+            <td draggable="true" class="auto-style4">
+               <a href="#">More&gt;&gt;</a>
+            </td>
+        </tr>
+        <tr>
+            <td draggable="true" class="auto-style4">
+                <a href="#">More&gt;&gt;</a>
+            </td>
+        </tr>
+        <tr>
+            <td draggable="true" class="auto-style4">
+                <a href="#">More&gt;&gt;</a>
+            </td>
+        </tr>
+        <tr>
+            <td draggable="true" class="auto-style4">
+                <a href="#">More&gt;&gt;</a>
+            </td>
+        </tr>
+        <tr>
+            <td draggable="true" class="auto-style4">
+                <a href="#">More&gt;&gt;</a>
+            </td>
+        </tr>
+        <tr>
+            <td draggable="true" class="auto-style6">
+                <a href="#">More&gt;&gt;</a>
+            </td>
         </tr>
         </table>
     </form>

@@ -51,7 +51,7 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
                 }
                 //  Response.Redirect("../system/Home.html");
                 //  Response.Write("<script>alert('你是主办方不是参赛者嘻嘻')</script>");
-                Response.Write("<script>alert('你是主办方不是参赛者嘻嘻');location.href='../system/Home.html';</script>");
+                else Response.Write("<script>alert('你是主办方不是参赛者嘻嘻');location.href='../system/Home.html';</script>");
             }
         }
 
@@ -138,7 +138,7 @@ namespace DotNet_vs2015_GO_beta_1.WebSite
                 Response.Write("<script>alert('请完善报名信息')</script>");
                 return;
             }
-            int participant_id = Convert.ToInt32(Session["participant_id"]);
+            int participant_id = Convert.ToInt32(Session["uid"]);
             //String competiton_id = Session["competiton_id"].ToString();
            // int participant_id = 136;
             int success=global.Join(participant_id, Realname, Province, City, School, Major, Grade, Number, Email, Telephone, Wechat, Sex, Teachername, Teacherinfo, "099c182ed2f041afb73a7c1145d3d789");
