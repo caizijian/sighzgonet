@@ -31,10 +31,10 @@ namespace WebApplication1
                 string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
                 MySqlConnection con = new MySqlConnection(str);//实例化链接
                 con.Open();
-                string strcmd = "update competition set content=?content  where id=?id";
+                string strcmd = "update competition set text=?text  where id=?id";
                 MySqlCommand cmd = new MySqlCommand(strcmd, con);
                 cmd.Parameters.AddWithValue("?id", Session["id"]);
-                cmd.Parameters.AddWithValue("?content", content.Text);
+                cmd.Parameters.AddWithValue("?text", content.Text);
                 Response.Redirect("launch5.aspx");
             }
            

@@ -151,7 +151,7 @@ namespace WebApplication1
             }
             return isimage;
         }
-
+        //限制输入数据
         protected bool check(string companyname, string managername, string telephone, string email)
         {
             if (Regex.IsMatch(companyname, @"[^0-9a-zA-Z\u4e00-\u9fa5]"))
@@ -162,6 +162,11 @@ namespace WebApplication1
             if (Regex.IsMatch(managername, @"[^0-9a-zA-Z\u4e00-\u9fa5]"))
             {
                 Response.Write("<script>alert('负责人名称不符合格式')</script>");
+                return false;
+            }
+            if (telephone.Length<8)
+            {
+                Response.Write("<script>alert('电话不符合规范')</script>");
                 return false;
             }
             if (managername == "")
