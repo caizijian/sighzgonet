@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="launch4.aspx.cs" Inherits="WebApplication1._4" %>
 
+<%@ Register assembly="FredCK.FCKeditorV2" namespace="FredCK.FCKeditorV2" tagprefix="FCKeditorV2" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,11 +10,11 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            height: 643px;
+            height: 1014px;
         }
         .auto-style2 {
             width: 100%;
-            height: 558px;
+            height: 711px;
         }
         .auto-style3 {
             height: 61px;
@@ -48,31 +50,31 @@
         }
         .auto-style14 {
             width: 100%;
-            height: 334px;
+            height: 675px;
         }
         .auto-style16 {
             width: 413px;
             height: 42px;
         }
-        .auto-style17 {
-            width: 413px;
-            height: 25px;
-        }
-        .auto-style18 {
-            width: 413px;
-            height: 243px;
-        }
-        .auto-style19 {
-            width: 413px;
-            height: 31px;
-        }
-        .auto-style20 {
-            width: 413px;
-            height: 34px;
-        }
         .auto-style21 {
             width: 413px;
             height: 75px;
+        }
+        .auto-style24 {
+            width: 413px;
+            height: 52px;
+        }
+        .auto-style27 {
+            width: 413px;
+            height: 6px;
+        }
+        .auto-style28 {
+            width: 413px;
+            height: 432px;
+        }
+        .auto-style29 {
+            width: 413px;
+            height: 45px;
         }
     </style>
 </head>
@@ -98,24 +100,36 @@
                             </td>                           
                         </tr>
                         <tr>
-                            <td class="auto-style20">&nbsp;&nbsp;温馨提示：此页所编辑信息将在赛事资讯页面上提示，请自行编辑好文本格式，注意标题与分段</td>                           
+                            <td class="auto-style24">&nbsp;&nbsp;温馨提示：此页所编辑信息将在赛事资讯页面上提示，请自行编辑好文本格式，注意标题与分段</td>                           
+                        </tr>
+                         <tr>
+                            <td class="auto-style27">
+                             </td>                           
                         </tr>
                         <tr>
-                            <td class="auto-style18">
-                                <asp:TextBox ID="content" runat="server" Font-Bold="True"  Height="206px" Width="521px"  Placeholder="公司/社会团体/学生社团名称等" TextMode="MultiLine" OnTextChanged="content_TextChanged"></asp:TextBox>
+                            <td class="auto-style28">
+                                <FCKeditorV2:FCKeditor ID="FCKeditor1" runat="server" Height="300px" >
+                                </FCKeditorV2:FCKeditor>
+                                <br />
+&nbsp;<br />
+                                <br />
+                                <asp:FileUpload ID="pic_upload" runat="server" Height="27px" Width="73px" />
+&nbsp;&nbsp;
+                                     <asp:Button ID="btn_upload" runat="server"  Text="上传" onclick="btn_upload_Click" Height="26px" Width="63px"/>  
+                                &nbsp;&nbsp; <asp:Label ID="lbl_pic" runat="server" Text="文件大小不得超过8M" BorderStyle="None" Font-Size="XX-Small" Height="16px" Width="186px"></asp:Label>
+                                <br />
+                                <br />
+&nbsp;<asp:Button ID="Button1" runat="server" BackColor="#002D54" BorderWidth="0px" Font-Size="Large" ForeColor="White" Height="26px" Text="提交申请" Width="81px" OnClick="Button1_Click" />
                             </td>                        
                         </tr>
                          <tr>
-                            <td class="auto-style19">
-                                <asp:FileUpload ID="FileUpload" runat="server" Width="70px" Height="25px"  />
-                             &nbsp;&nbsp;
-                                <asp:Button ID="Button2" runat="server" Font-Bold="False" Font-Size="Medium" Height="25px" OnClick="Button2_Click" Text="上传" />
-                             </td>                        
+                            <td class="auto-style29">
+                             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                </td>                        
                         </tr>
                         <tr>
                             <td class="auto-style16">
-                                <asp:Button ID="Button1" runat="server" BackColor="#002D54" BorderWidth="0px" Font-Size="Large" ForeColor="White" Height="26px" Text="提交申请" Width="81px" OnClick="Button1_Click" />
-                            </td>
+                                &nbsp;&nbsp; &nbsp;</td>
                             
                         </tr>
                     </table>

@@ -167,11 +167,6 @@ namespace WebApplication1
                 Response.Write("<script>alert('负责人名称不符合格式')</script>");
                 return false;
             }
-            if (telephone.Length<8)
-            {
-                Response.Write("<script>alert('电话不符合规范')</script>");
-                return false;
-            }
             if (managername == "")
             {
                 Response.Write("<script>alert('负责人不能为空')</script>");
@@ -187,6 +182,11 @@ namespace WebApplication1
                 Response.Write("<script>alert('电话号码不能为空')</script>");
                 return false;
             }
+            if (telephone.Length < 8)
+            {
+                Response.Write("<script>alert('电话不符合规范')</script>");
+                return false;
+            }
             if (email == "")
             {
                 Response.Write("<script>alert('邮箱不能为空')</script>");
@@ -194,31 +194,34 @@ namespace WebApplication1
             }
             return true;
         }
+    
         protected void Button1_Click(object sender, System.EventArgs e)
         {
             if (check(companyname.Text, managername.Text,telephone.Text,email.Text))
             {
-                //  string str = "Server=localhost;User ID=root;Password=1548936563ry?;Database=launch;CharSet=utf8;";
-                string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
-                MySqlConnection con = new MySqlConnection(str);//实例化链接
-                con.Open();   //开启连接   
-                string strcmd = "update host set companyname=?companyname,managername=?managername,telephone=?telephone,email=?email,wechat=?wechat,province=?province,city=?city,district=?district where id=?id";
-                MySqlCommand cmd = new MySqlCommand(strcmd, con);
-                cmd.Parameters.AddWithValue("?managername", managername.Text);
-                cmd.Parameters.AddWithValue("?telephone", telephone.Text);
-                cmd.Parameters.AddWithValue("?wechat", wechat.Text);
-                cmd.Parameters.AddWithValue("?companyname", companyname.Text);
-                cmd.Parameters.AddWithValue("?province", bind_Province.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("?city", bind_City.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("?district", Bind_Area.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("?email", email.Text);
-                cmd.Parameters.AddWithValue("?id", Session["uid"]);
-              //  cmd.Parameters.AddWithValue("?id", 1);
-                int i = cmd.ExecuteNonQuery();
-                Console.WriteLine(i);
-                Session["managername"] = managername.Text;
-                con.Close();//关闭连接
-                Response.Redirect("launch3.aspx");
+  
+                        //  string str = "Server=localhost;User ID=root;Password=1548936563ry?;Database=launch;CharSet=utf8;";
+                        string str = "Server=10.10.11.108;User ID=root;Password=GNzhengxun11;Database=sighzgo;CharSet=utf8;";
+                        MySqlConnection con = new MySqlConnection(str);//实例化链接
+                        con.Open();   //开启连接   
+                        string strcmd = "update host set companyname=?companyname,managername=?managername,telephone=?telephone,email=?email,wechat=?wechat,province=?province,city=?city,district=?district where id=?id";
+                        MySqlCommand cmd = new MySqlCommand(strcmd, con);
+                        cmd.Parameters.AddWithValue("?managername", managername.Text);
+                        cmd.Parameters.AddWithValue("?telephone", telephone.Text);
+                        cmd.Parameters.AddWithValue("?wechat", wechat.Text);
+                        cmd.Parameters.AddWithValue("?companyname", companyname.Text);
+                        cmd.Parameters.AddWithValue("?province", bind_Province.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("?city", bind_City.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("?district", Bind_Area.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("?email", email.Text);
+                        cmd.Parameters.AddWithValue("?id", Session["uid"]);
+                        //  cmd.Parameters.AddWithValue("?id", 1);
+                        int i = cmd.ExecuteNonQuery();
+                        Console.WriteLine(i);
+                        Session["managername"] = managername.Text;
+                        con.Close();//关闭连接
+                        Response.Redirect("launch3.aspx");
+
             }
         }
 

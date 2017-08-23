@@ -51,7 +51,7 @@ namespace WebApplication1
             }
             int min = Convert.ToInt16(this.minmember.Text);
             int max = Convert.ToInt16(this.maxmember.Text);
-            if (min<2||max<2)      
+            if (min<2||max<2||max<min)      
             {
                 Response.Write("<script>alert('团队人数不符合格式')</script>");
                 return false;
@@ -79,6 +79,12 @@ namespace WebApplication1
             if (maxbouns == "")
             {
                 Response.Write("<script>alert('奖金不能为空')</script>");
+                return false;
+            }
+            int money = Convert.ToInt16(this.maxbouns.Text);
+            if (money<0)
+            {
+                Response.Write("<script>alert('奖金不能为负')</script>");
                 return false;
             }
             return true;
