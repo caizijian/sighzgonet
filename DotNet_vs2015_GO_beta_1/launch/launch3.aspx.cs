@@ -28,8 +28,7 @@ namespace WebApplication1
         protected bool check(string competitionname, string signupstarttime, string ddl,
             string starttime, string endtime, string maxbouns ,string minmember, string maxmember)
         {
-            int min = Convert.ToInt16(this.minmember.Text);
-            int max = Convert.ToInt16(this.maxmember.Text);
+    
             if (competitionname == "")
             {
                 Response.Write("<script>alert('赛事名称不能为空')</script>");
@@ -40,6 +39,18 @@ namespace WebApplication1
                 Response.Write("<script>alert('赛事名称不符合格式')</script>");
                 return false;
             }
+            if (minmember == "")
+            {
+                Response.Write("<script>alert('团队人数不能为空')</script>");
+                return false;
+            }
+            if (minmember == "")
+            {
+                Response.Write("<script>alert('团队人数不能为空')</script>");
+                return false;
+            }
+            int min = Convert.ToInt16(this.minmember.Text);
+            int max = Convert.ToInt16(this.maxmember.Text);
             if (min<2||max<2)      
             {
                 Response.Write("<script>alert('团队人数不符合格式')</script>");
