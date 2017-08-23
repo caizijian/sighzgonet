@@ -713,6 +713,7 @@
     <Content Include="launch\launch3.aspx" />
     <Content Include="launch\launch4.aspx" />
     <Content Include="launch\launch5.aspx" />
+    <Content Include="launch\upload.aspx" />
     <Content Include="packages.config" />
     <Content Include="launch\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
     <Content Include="launch\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
@@ -794,6 +795,13 @@
     </Compile>
     <Compile Include="launch\launch5.aspx.designer.cs">
       <DependentUpon>launch5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="launch\upload.aspx.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="launch\upload.aspx.designer.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
     </Compile>
     <Compile Include="paticipant\App_Code\global.cs" />
     <Compile Include="paticipant\App_Code\mysqlHelp.cs" />
