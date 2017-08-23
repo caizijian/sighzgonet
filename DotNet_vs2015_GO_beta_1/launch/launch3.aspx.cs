@@ -210,5 +210,20 @@ namespace WebApplication1
         {
 
         }
+
+        protected void radiobuttonlistabc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectvalue = int.Parse(radiobuttonlistabc.SelectedValue);
+            if(selectvalue == 2)
+            {
+                Panel1.Visible = true;
+                Panel2.Visible = false;
+            }
+            if (selectvalue == 1)
+            {
+                Panel1.Visible = false;
+                Panel2.Visible = true;
+            }
+        }
     }
 }

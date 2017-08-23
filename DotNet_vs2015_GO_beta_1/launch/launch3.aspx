@@ -55,12 +55,9 @@
         }
         .auto-style16 {
             width: 185px;
-            height: 52px;
+            height: 191px;
         }
-        .auto-style17 {
-            height: 52px;
-        }
-
+        
         .auto-style18 {
             width: 185px;
             height: 34px;
@@ -82,6 +79,10 @@
         }
         .auto-style23 {
             height: 41px;
+        }
+
+        .auto-style24 {
+            height: 191px;
         }
 
     </style>
@@ -129,11 +130,21 @@
                             <td class="auto-style16">
                                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 赛事形式：</td>
-                            <td class="auto-style17">
-                                &nbsp; 每组 
-                                <asp:TextBox ID="minmember" runat="server" OnTextChanged="minmember_TextChanged" Width="34px" onkeypress="if (event.keyCode < 48 || event.keyCode >57) event.returnValue = false;" Height="20px" TextMode="Number"></asp:TextBox>
+                            <td class="auto-style24">
+                                <asp:RadioButtonList runat="server" AutoPostBack="True" RepeatDirection="Horizontal"
+ID="radiobuttonlistabc" OnSelectedIndexChanged="radiobuttonlistabc_SelectedIndexChanged">
+<asp:ListItem Value="1">个人赛</asp:ListItem>
+<asp:ListItem Value="2">团队赛</asp:ListItem>
+</asp:RadioButtonList><br />
+                                <asp:Panel ID="Panel1" runat="server" Width="238px" Visible="False" Height="41px"> 每组： <asp:TextBox ID="minmember" runat="server" OnTextChanged="minmember_TextChanged" Width="34px" onkeypress="if (event.keyCode < 48 || event.keyCode >57) event.returnValue = false;" Height="20px" TextMode="Number"></asp:TextBox>
                                 &nbsp;— <asp:TextBox ID="maxmember" runat="server" Width="32px" onkeypress="if (event.keyCode < 48 || event.keyCode >57) event.returnValue = false;" Height="20px" OnTextChanged="maxmember_TextChanged" TextMode="Number"></asp:TextBox>
-&nbsp;人</td>
+&nbsp;人</asp:Panel>
+                          <asp:Panel ID="Panel2" runat="server" Width="147px" Visible="False">
+</asp:Panel>      
+&nbsp;<br />
+                                <br />
+
+                            </td>
                         </tr>
                         <tr>
                             <td class="auto-style20">
