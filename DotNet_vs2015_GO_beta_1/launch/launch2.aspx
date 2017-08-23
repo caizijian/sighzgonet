@@ -9,6 +9,7 @@
     <style type="text/css">
         .auto-style1 {
             height: 643px;
+            width: 886px;
         }
         .auto-style2 {
             width: 100%;
@@ -37,14 +38,14 @@
         }
         .auto-style9 {
             height: 61px;
-            width: 580px;
+            width: 680px;
         }
         .auto-style10 {
             height: 366px;
-            width: 580px;
+            width: 680px;
         }
         .auto-style11 {
-            width: 580px;
+            width: 680px;
         }
         .auto-style12 {
             width: 127%;
@@ -162,7 +163,9 @@
                                 <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 联系电话：</td>
                             <td class="auto-style17">
-                                <asp:TextBox ID="telephone" runat="server" Height="20px" Width="222px" OnTextChanged="telephone_TextChanged" TextMode="Phone" MaxLength="11" ></asp:TextBox>
+                                <asp:TextBox ID="telephone" runat="server" Height="20px" Width="200px" OnTextChanged="telephone_TextChanged" MaxLength="11" ></asp:TextBox>
+                            &nbsp;
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="telephone" ErrorMessage="电话错误" ValidationExpression="^[1]\d{10}"></asp:RegularExpressionValidator>
                             </td>
                         </tr>
                         <tr>
@@ -170,13 +173,13 @@
                                 <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="*"></asp:Label>
                                 邮箱：</td>
                             <td class="auto-style19">
-                                <asp:TextBox ID="email" runat="server" Height="20px" Width="222px" OnTextChanged="email_TextChanged" TextMode="Email" ></asp:TextBox>
+                                <asp:TextBox ID="email" runat="server" Height="20px" Width="202px" OnTextChanged="email_TextChanged" TextMode="Email" ></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style20">微信号：</td>
                             <td class="auto-style21">
-                                <asp:TextBox ID="wechat" runat="server" Height="20px" Width="222px" ></asp:TextBox>
+                                <asp:TextBox ID="wechat" runat="server" Height="20px" Width="201px" ></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
