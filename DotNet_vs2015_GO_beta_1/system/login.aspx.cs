@@ -92,6 +92,7 @@ namespace login
              Response.Redirect("Home.html", false);
              }*/
         }
+		}
 
         //记住密码
         //cookie记住密码
